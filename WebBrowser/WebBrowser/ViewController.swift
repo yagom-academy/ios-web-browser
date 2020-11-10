@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         loadUrl()
-//        changeUrl(input: <#T##String#>)
     }
     
     func loadUrl() {
@@ -45,43 +44,14 @@ class ViewController: UIViewController {
         guard let inputUrl = URL(string: input) else { return }
         let changeRequest = URLRequest(url: inputUrl)
         
-        webView?.load(changeRequest)
+        webView.load(changeRequest)
     }
     
     @IBAction func touchUpChangeButton(_ sender: UIButton) {
-        print(inputText.text)
+        let inputUrl : String? = inputText.text
+        guard let input = inputUrl else { return }
+        print(input)
+        changeUrl(input: input)
     }
-
-    @IBAction func inputTextValue(_ sender: UITextField) {
-        print(inputText.text)
-    }
-    
 }
 
-/*
- class ViewController: UIViewController {
-  
-     @IBOutlet weak var inputtext: UITextField!
-     
-     @IBOutlet weak var outputtext: UILabel!
-     
-     @IBAction func insert(sender: AnyObject) {
-         outputtext.text=inputtext.text;
-         inputtext.text="";
-         
-     }
-     @IBAction func clear(sender: AnyObject) {
-         outputtext.text="";
-         
-     }
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         // Do any additional setup after loading the view, typically from a nib.
-     }
-  
-     override func didReceiveMemoryWarning() {
-         super.didReceiveMemoryWarning()
-         // Dispose of any resources that can be recreated.
-     }
- }
- */
