@@ -19,7 +19,21 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDm-tZ-FZg" customClass="ToolBar" customModule="WebBrowser" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" id="dh5-pW-CA1"/>
+                                    <barButtonItem image="chevron.left" catalog="system" id="dh5-pW-CA1">
+                                        <connections>
+                                            <action selector="didTapBackButton:" destination="mDm-tZ-FZg" id="heA-IT-ftq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="chevron.right" catalog="system" id="BWO-tH-tX2">
+                                        <connections>
+                                            <action selector="didTapForwardButton:" destination="mDm-tZ-FZg" id="3XK-Oo-Wsg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="arrow.counterclockwise" catalog="system" id="DXs-SV-jlU">
+                                        <connections>
+                                            <action selector="didTapReloadButton:" destination="mDm-tZ-FZg" id="gbz-MY-Tcd"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIz-Nx-hTR" customClass="WebView" customModule="WebBrowser" customModuleProvider="target">
@@ -60,6 +74,10 @@
                             <constraint firstItem="mDm-tZ-FZg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pWN-oS-LF1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="toolBar" destination="mDm-tZ-FZg" id="RVH-d6-Xrg"/>
+                        <outlet property="webView" destination="aIz-Nx-hTR" id="Vdk-Ys-Cl9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,6 +85,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
