@@ -54,4 +54,3 @@ class ViewController: UIViewController {
         changeUrl(input: input)
     }
 }
-
