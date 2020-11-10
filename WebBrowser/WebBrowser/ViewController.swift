@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     }
     
     func loadUrl() {
-        guard let url = URL(string: "https://yagom.net") else { return }
-        let request = URLRequest(url: url)
+        guard let url: URL = URL(string: "https://yagom.net") else { return }
+        let request: URLRequest = URLRequest(url: url)
 
         webView.load(request)
     }
@@ -40,16 +40,16 @@ class ViewController: UIViewController {
         }
     }
     
-    func changeUrl(input : String) {
-        guard let inputUrl = URL(string: input) else { return }
-        let changeRequest = URLRequest(url: inputUrl)
+    func changeUrl(input: String) {
+        guard let inputUrl: URL = URL(string: input) else { return }
+        let changeRequest: URLRequest = URLRequest(url: inputUrl)
         
         webView.load(changeRequest)
     }
     
     @IBAction func touchUpChangeButton(_ sender: UIButton) {
-        let inputUrl : String? = inputText.text
-        guard let input = inputUrl else { return }
+        let inputUrl: String? = inputText.text
+        guard let input: String = inputUrl else { return }
         print(input)
         changeUrl(input: input)
     }
