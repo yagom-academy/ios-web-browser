@@ -9,12 +9,11 @@ import UIKit
 
 class SearchBar: UISearchBar {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    public func config() {
+        //searchbar의 왼쪽 돋보기 icon 없애기!
+        self.setImage(UIImage(), for: .search, state: .normal)
+        self.autocapitalizationType = .none
+        self.keyboardType = .URL
+        self.textContentType = .URL
     }
-    */
-
 }
