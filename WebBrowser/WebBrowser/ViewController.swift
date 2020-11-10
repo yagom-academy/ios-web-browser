@@ -1,18 +1,19 @@
-//
-//  WebBrowser - ViewController.swift
-//  Created by yagom. 
-//  Copyright © yagom. All rights reserved.
-// 
-
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+     
+        loadWebPage(url: "https://www.rapid7.com")
     }
-
-
+    
+    func loadWebPage(url: String) {
+        if let requestUrl = URL(string: url) {
+            let request = URLRequest(url: requestUrl)
+            webView.load(request)
+        }
+    }
 }
-
