@@ -8,23 +8,20 @@ import UIKit
 import WebKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var webViewMain: WKWebView!
+    
+    @IBOutlet weak var mainWebView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // 1. url string을 찾는다
-        // 2. Request로 바꾼다
-        // 3. road
         
+        /// 웹뷰에 구글 페이지 로드
         let urlString = "https://www.google.com"
-        if let url = URL(string: urlString) { //unwrapping
+        if let url = URL(string: urlString) {
             let urlReq = URLRequest(url: url)
-            webViewMain.load(urlReq)
+            mainWebView.load(urlReq)
         }
        
     }
-
 
 }
 

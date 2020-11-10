@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sx-35-UUk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -30,12 +30,12 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="8sx-35-UUk" secondAttribute="bottom" id="ctt-HZ-q5g"/>
                             <constraint firstItem="8sx-35-UUk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hxe-fV-HHr"/>
-                            <constraint firstItem="8sx-35-UUk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="m6V-aw-19T"/>
+                            <constraint firstItem="8sx-35-UUk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m6V-aw-19T"/>
                             <constraint firstItem="8sx-35-UUk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="taC-aX-n3m"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="webViewMain" destination="8sx-35-UUk" id="UzA-qr-M3o"/>
+                        <outlet property="mainWebView" destination="8sx-35-UUk" id="UzA-qr-M3o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
