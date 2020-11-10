@@ -10,7 +10,7 @@ import WebKit
 class ViewController: UIViewController {
     
     @IBOutlet var webView: WKWebView!
-    private let myURL: URL? = URL(string:"https://www.naver.com")
+    private let myURL: URL? = URL(string: "https://www.github.com")
     
     override func viewDidLoad() {
         super.viewDidLoad()
