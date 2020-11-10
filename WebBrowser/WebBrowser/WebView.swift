@@ -10,6 +10,7 @@ import WebKit
 
 class WebView: WKWebView {
     public func config() {
+        self.urlRequest(to: "https://www.apple.com")
     }
     public func urlRequest(to url: String) {
         let myURL = URL(string: url)
