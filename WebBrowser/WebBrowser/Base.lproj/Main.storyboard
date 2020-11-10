@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJB-cl-Jtc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="648"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -32,42 +32,66 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="agh-2f-QVf"/>
                                     <barButtonItem title="btnGoBack" image="arrow.left" catalog="system" width="125" id="ZRM-Dr-Abq" userLabel="ButtonGoBack">
                                         <connections>
-                                            <action selector="btnGoBack:" destination="BYZ-38-t0r" id="dLV-Qs-vne"/>
+                                            <action selector="buttonGoBack:" destination="BYZ-38-t0r" id="cs2-4j-byT"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ps2-in-AO7"/>
                                     <barButtonItem title="btnReload" image="arrow.clockwise" catalog="system" width="125" id="ATP-vk-ZEC" userLabel="ButtonReload">
                                         <connections>
-                                            <action selector="btnReload:" destination="BYZ-38-t0r" id="zaw-35-qil"/>
+                                            <action selector="buttonReload:" destination="BYZ-38-t0r" id="mTW-jm-uhS"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SwR-Im-7N0"/>
                                     <barButtonItem title="btnGoForward" image="arrow.right" catalog="system" width="125" id="XMd-lD-nUO" userLabel="ButtonGoForward">
                                         <connections>
-                                            <action selector="btnGoForward:" destination="BYZ-38-t0r" id="iSY-Hg-IDY"/>
+                                            <action selector="buttonGoForward:" destination="BYZ-38-t0r" id="N1v-Ft-gWV"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pnU-tZ-mlL"/>
                                 </items>
                                 <color key="tintColor" name="AccentColor"/>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-oi-HMY">
+                                <rect key="frame" x="75" y="5" width="329" height="34"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="이동"/>
+                                <connections>
+                                    <action selector="touchUpChangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q6A-AA-SoE"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kiu-wh-l17">
+                                <rect key="frame" x="10" y="5" width="65" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="VKU-qY-PDM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="AkT-oi-HMY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="Abr-d7-5g2"/>
                             <constraint firstItem="bJB-cl-Jtc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HO3-Xu-IFL"/>
+                            <constraint firstItem="AkT-oi-HMY" firstAttribute="leading" secondItem="Kiu-wh-l17" secondAttribute="trailing" constant="10" id="M0B-5B-1ld"/>
                             <constraint firstItem="10J-sG-zVW" firstAttribute="top" secondItem="bJB-cl-Jtc" secondAttribute="bottom" id="NUs-pB-iV4"/>
-                            <constraint firstItem="bJB-cl-Jtc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="P0H-As-hcz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AkT-oi-HMY" secondAttribute="trailing" constant="10" id="OZX-sW-Zfd"/>
                             <constraint firstItem="10J-sG-zVW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RGq-4e-oXY"/>
                             <constraint firstItem="bJB-cl-Jtc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="chH-bu-14M"/>
+                            <constraint firstItem="Kiu-wh-l17" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="giX-DU-WNy"/>
+                            <constraint firstItem="Kiu-wh-l17" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="iyr-w8-GAr"/>
                             <constraint firstItem="10J-sG-zVW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jJj-IS-8Ex"/>
+                            <constraint firstItem="bJB-cl-Jtc" firstAttribute="top" secondItem="AkT-oi-HMY" secondAttribute="bottom" constant="5" id="jnK-Da-28W"/>
                             <constraint firstItem="10J-sG-zVW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rkv-7Y-9M4"/>
+                            <constraint firstItem="bJB-cl-Jtc" firstAttribute="top" secondItem="Kiu-wh-l17" secondAttribute="bottom" constant="5" id="uYa-qi-exG"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnGoBack" destination="ZRM-Dr-Abq" id="fdm-GB-fMr"/>
-                        <outlet property="btnGoForward" destination="XMd-lD-nUO" id="ayl-qd-53N"/>
-                        <outlet property="buttonReload" destination="ATP-vk-ZEC" id="d0d-Wt-Vf1"/>
+                        <outlet property="buttonGoBack" destination="ZRM-Dr-Abq" id="eqp-oD-bZu"/>
+                        <outlet property="buttonGoForward" destination="XMd-lD-nUO" id="T4S-0c-9J5"/>
+                        <outlet property="buttonReload" destination="ATP-vk-ZEC" id="BD2-mm-379"/>
+                        <outlet property="inputText" destination="Kiu-wh-l17" id="d8T-ua-IvA"/>
                         <outlet property="toolBar" destination="10J-sG-zVW" id="Qb4-59-WGN"/>
                         <outlet property="webView" destination="bJB-cl-Jtc" id="rJ4-k8-Pp0"/>
                     </connections>
@@ -84,6 +108,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
