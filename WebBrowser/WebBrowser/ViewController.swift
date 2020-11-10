@@ -8,15 +8,13 @@ import UIKit
 import WebKit
 
 class ViewController: UIViewController {
-    
+    // TODO: add indicator
     @IBOutlet weak var webView: WKWebView!
     
     private let myAddress = "https://www.indiepost.co.kr"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         setWebView()
     }
     
