@@ -16,21 +16,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJX-eM-fcZ">
-                                <rect key="frame" x="20" y="54" width="374" height="808"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJX-eM-fcZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtC-MU-xBD">
+                                <rect key="frame" x="10" y="813" width="394" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="TEb-XH-0YC"/>
+                                    <barButtonItem title="back" style="plain" id="KX8-HM-wvI">
+                                        <inset key="landscapeImageInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="42Q-YP-odQ">
+                                            <rect key="frame" x="0.0" y="5" width="95" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" image="chevron.backward" catalog="system"/>
+                                            <connections>
+                                                <action selector="goBack" destination="BYZ-38-t0r" eventType="touchUpInside" id="5A6-Bz-Sai"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="kQ5-wt-EH2"/>
+                                    <barButtonItem title="refresh" style="plain" id="8oU-Gy-icQ">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="La6-ml-5hU">
+                                            <rect key="frame" x="137" y="16" width="150" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                            <connections>
+                                                <action selector="reloadPage" destination="BYZ-38-t0r" eventType="touchUpInside" id="vEw-5z-Juo"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="EWb-gc-Ss8"/>
+                                    <barButtonItem title="forward" style="plain" id="qRr-3N-BR7">
+                                        <inset key="landscapeImageInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K3D-vg-swl">
+                                            <rect key="frame" x="299" y="5" width="95" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="chevron.forward" catalog="system"/>
+                                            <connections>
+                                                <action selector="goForward" destination="BYZ-38-t0r" eventType="touchUpInside" id="Etf-w5-6mJ"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="H24-uQ-zgy"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="top" secondItem="bJX-eM-fcZ" secondAttribute="bottom" id="5R5-h7-EsH"/>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="top" secondItem="bJX-eM-fcZ" secondAttribute="bottom" id="6j7-D6-cwd"/>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8eQ-0f-SV2"/>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="bt2-TG-lOG"/>
+                            <constraint firstItem="bJX-eM-fcZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="faT-YO-8bO"/>
+                            <constraint firstItem="bJX-eM-fcZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="l0i-SU-QjU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bJX-eM-fcZ" secondAttribute="trailing" id="mQE-kY-Lka"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LtC-MU-xBD" secondAttribute="trailing" constant="10" id="vEr-kr-1L4"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="goBackButton" destination="KX8-HM-wvI" id="e0r-vw-4eB"/>
+                        <outlet property="goForwardButton" destination="qRr-3N-BR7" id="2MP-Ql-jkW"/>
+                        <outlet property="reloadPageButton" destination="8oU-Gy-icQ" id="idh-57-nHw"/>
                         <outlet property="webVeiw" destination="bJX-eM-fcZ" id="xE9-Lh-gsQ"/>
                     </connections>
                 </viewController>
@@ -40,6 +95,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
