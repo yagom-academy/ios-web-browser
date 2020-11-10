@@ -5,46 +5,33 @@ import WebKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var buttonGoForward: UIBarButtonItem!
+    @IBOutlet weak var buttonReload: UIBarButtonItem!
+    @IBOutlet weak var buttonGoBack: UIBarButtonItem!
+    @IBOutlet weak var toolBar: UIToolbar!
     
-//    override func loadView() {
-//        super.loadView()
-//
-//        webView? = WKWebView(frame: self.view.frame)
-//        view = webView!
-//
-//    }
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        loadUrl()
+    }
+    
     func loadUrl() {
         guard let url = URL(string: "https://yagom.net") else { return }
         let request = URLRequest(url: url)
 
         webView.load(request)
     }
-
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view = webView!
-        
-        loadUrl()
-    }
-    
-    
-    @IBOutlet weak var btnGoForward: UIBarButtonItem!
-    @IBOutlet weak var btnReload: UIBarButtonItem!
-    @IBOutlet weak var btnGoBack: UIBarButtonItem!
-    @IBOutlet weak var toolBar: UIToolbar!
-    
-    @IBAction func btnGoForward(_ sender: UIBarButtonItem) {
+    @IBAction func buttonGoForward(_ sender: UIBarButtonItem) {
         if webView.canGoForward {
         webView.goForward()
         }
     }
-    @IBAction func btnReload(_ sender: UIBarButtonItem) {
+    @IBAction func buttonReload(_ sender: UIBarButtonItem) {
         webView.reload()
     }
-    @IBAction func btnGoBack(_ sender: UIBarButtonItem) {
+    @IBAction func buttonGoBack(_ sender: UIBarButtonItem) {
         if webView.canGoBack {
         webView.goBack()
         }
