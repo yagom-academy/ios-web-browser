@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A3A882B255A2942000C32D4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3A8829255A2942000C32D4 /* WebKit.framework */; };
+		9A3A882C255A2942000C32D4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3A882A255A2942000C32D4 /* WebKit.framework */; };
 		C7ABA119254EB0CA00B2367D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA118254EB0CA00B2367D /* AppDelegate.swift */; };
 		C7ABA11B254EB0CA00B2367D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA11A254EB0CA00B2367D /* SceneDelegate.swift */; };
 		C7ABA11D254EB0CA00B2367D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA11C254EB0CA00B2367D /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A3A8829255A2942000C32D4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/PrivateFrameworks/WebKit.framework; sourceTree = SDKROOT; };
+		9A3A882A255A2942000C32D4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C7ABA115254EB0CA00B2367D /* WebBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7ABA118254EB0CA00B2367D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7ABA11A254EB0CA00B2367D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3A882B255A2942000C32D4 /* WebKit.framework in Frameworks */,
+				9A3A882C255A2942000C32D4 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A3A8828255A2942000C32D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A3A882A255A2942000C32D4 /* WebKit.framework */,
+				9A3A8829255A2942000C32D4 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7ABA10C254EB0CA00B2367D = {
 			isa = PBXGroup;
 			children = (
 				C7ABA117254EB0CA00B2367D /* WebBrowser */,
 				C7ABA116254EB0CA00B2367D /* Products */,
+				9A3A8828255A2942000C32D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -287,7 +303,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJPXPHW2TN;
 				INFOPLIST_FILE = WebBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,6 +313,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.WebBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -305,7 +327,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJPXPHW2TN;
 				INFOPLIST_FILE = WebBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +337,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.WebBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
