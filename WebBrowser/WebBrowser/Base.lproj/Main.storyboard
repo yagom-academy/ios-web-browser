@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,21 +17,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrh-cr-T1F">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="78" width="414" height="735"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cJ7-Ik-7DS">
+                                <rect key="frame" x="0.0" y="44" width="380" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-eV-bih">
+                                <rect key="frame" x="380" y="44" width="34" height="34"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="이동">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2DZ-fg-MmA">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="Item" id="36W-3f-g7G"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xmZ-pp-K3w"/>
+                                    <barButtonItem title="Item" id="y3w-ki-3RS"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="i50-IP-jxv"/>
+                                    <barButtonItem title="Item" id="H7U-2f-KqR"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xrh-cr-T1F" secondAttribute="trailing" id="GNd-bE-86T"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xrh-cr-T1F" secondAttribute="bottom" id="iwa-SV-nkq"/>
-                            <constraint firstItem="xrh-cr-T1F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jYj-o7-jhf"/>
-                            <constraint firstItem="xrh-cr-T1F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rfH-3z-WbU"/>
+                            <constraint firstItem="RWc-eV-bih" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1aq-xY-1F5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2DZ-fg-MmA" secondAttribute="bottom" id="3Aa-p4-XTv"/>
+                            <constraint firstItem="2DZ-fg-MmA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="H0U-dd-Wx3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RWc-eV-bih" secondAttribute="trailing" id="NWi-wP-6Kl"/>
+                            <constraint firstItem="RWc-eV-bih" firstAttribute="leading" secondItem="cJ7-Ik-7DS" secondAttribute="trailing" id="Nhi-kT-tmJ"/>
+                            <constraint firstItem="2DZ-fg-MmA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O1h-0A-4HP"/>
+                            <constraint firstItem="cJ7-Ik-7DS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c80-nC-BxS"/>
+                            <constraint firstItem="cJ7-Ik-7DS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e9e-MY-SAZ"/>
+                            <constraint firstItem="xrh-cr-T1F" firstAttribute="top" secondItem="cJ7-Ik-7DS" secondAttribute="bottom" id="eA6-19-5Qm"/>
+                            <constraint firstItem="xrh-cr-T1F" firstAttribute="top" secondItem="RWc-eV-bih" secondAttribute="bottom" id="ggI-cG-iWE"/>
+                            <constraint firstItem="xrh-cr-T1F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kg3-I9-Oer"/>
+                            <constraint firstItem="xrh-cr-T1F" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qiz-BL-YjL"/>
+                            <constraint firstItem="2DZ-fg-MmA" firstAttribute="top" secondItem="xrh-cr-T1F" secondAttribute="bottom" id="ybd-IN-DLF"/>
                         </constraints>
                     </view>
                     <connections>
@@ -44,6 +76,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
