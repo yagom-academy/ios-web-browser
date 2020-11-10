@@ -5,14 +5,21 @@
 // 
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var webVeiw: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        guard let initialURL = URL(string: "https://m.naver.com") else {
+                    print("URL is nil : 잘못된 값이 입력되었습니다.")
+                    return
     }
+        let urlRequest = URLRequest(url: initialURL)
+        webVeiw.load(urlRequest)
 
-
+    }
 }
-
