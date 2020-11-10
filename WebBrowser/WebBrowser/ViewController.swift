@@ -12,14 +12,14 @@ class ViewController: UIViewController {
         webView? = WKWebView(frame: self.view.frame)
         self.view = self.webView!
         
-        loadWebView()
+        loadUrl()
     }
 
     /*
      웹 페이지를 보여주는 함수
      code by 그린,꼬말
     */
-    func loadWebView() {
+    func loadUrl() {
         guard let url = URL(string: "https://yagom.net") else { return }
         let request = URLRequest(url: url)
         
