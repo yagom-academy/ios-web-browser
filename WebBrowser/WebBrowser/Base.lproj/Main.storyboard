@@ -55,6 +55,9 @@
                                         <rect key="frame" x="379" y="0.0" width="35" height="56"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="검색"/>
+                                        <connections>
+                                            <action selector="didTapSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dsb-Hf-ejS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -75,6 +78,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="Iow-2I-TO0" id="kcI-O6-ob2"/>
                         <outlet property="toolBar" destination="mDm-tZ-FZg" id="RVH-d6-Xrg"/>
                         <outlet property="webView" destination="aIz-Nx-hTR" id="Vdk-Ys-Cl9"/>
                     </connections>
