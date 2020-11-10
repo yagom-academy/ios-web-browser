@@ -6,21 +6,20 @@
 
 import UIKit
 import WebKit
+
 class ViewController: UIViewController {
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var infoLabel: UILabel!
+    
+    @IBOutlet weak var webVeiw: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        infoLabel.isHidden = true
         
-        guard let bookmarkURL = URL(string:"https://m.nate.com") else {
-            infoLabel.isHidden = false
-            infoLabel.text = "해당 주소URL을 찾을 수 없습니다."
-            return
-        }
-       
-        let urlRequest = URLRequest(url: bookmarkURL)
-        webView.load(urlRequest)
+        guard let initialURL = URL(string: "https://m.naver.com") else {
+                    print("URL is nil : 잘못된 값이 입력되었습니다.")
+                    return
+    }
+        let urlRequest = URLRequest(url: initialURL)
+        webVeiw.load(urlRequest)
+
     }
 }

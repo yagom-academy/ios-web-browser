@@ -16,40 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lh-yW-b2c">
-                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJX-eM-fcZ">
+                                <rect key="frame" x="20" y="54" width="374" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCY-NV-AQd">
-                                <rect key="frame" x="169.5" y="437.5" width="75" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="lCY-NV-AQd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="14l-ob-b8I"/>
-                            <constraint firstItem="2lh-yW-b2c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="50J-5s-Dbc"/>
-                            <constraint firstItem="2lh-yW-b2c" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="Amq-1Z-EfA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2lh-yW-b2c" secondAttribute="bottom" id="NrH-XV-TFy"/>
-                            <constraint firstItem="lCY-NV-AQd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xjh-By-R66"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2lh-yW-b2c" secondAttribute="trailing" id="yQr-YV-cHJ"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="infoLabel" destination="lCY-NV-AQd" id="SQg-au-Vk1"/>
-                        <outlet property="webView" destination="2lh-yW-b2c" id="T92-rk-Apb"/>
+                        <outlet property="webVeiw" destination="bJX-eM-fcZ" id="xE9-Lh-gsQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12" y="28"/>
+            <point key="canvasLocation" x="-197.10144927536234" y="93.75"/>
         </scene>
     </scenes>
     <resources>
