@@ -9,7 +9,7 @@ import WebKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var webVeiw: WKWebView!
+    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
                     return
     }
         let urlRequest = URLRequest(url: initialURL)
-        webVeiw.load(urlRequest)
+        webView.load(urlRequest)
 
     }
 }
