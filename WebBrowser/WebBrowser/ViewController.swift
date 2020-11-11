@@ -67,14 +67,18 @@ class ViewController: UIViewController {
         if (keyPath == "loading") {
             goBackButton.isEnabled = webView.canGoBack
             goForwardButton.isEnabled = webView.canGoForward
+            showCurrentAddress()
         }
     }
 }
+
 extension ViewController {
+    
     private func loadWebView(of requestedURL: URL){
         let urlRequest = URLRequest(url: requestedURL)
         searchBarURL.text = requestedURL.absoluteString
         webView.load(urlRequest)
+        
     }
     
     private func convertToURL(of searchBarText: String?) -> URL? {
@@ -82,7 +86,7 @@ extension ViewController {
             return nil
         }
         
-        if requestedURLText.hasPrefix("https://") {
+        if requestedURLText.hasPrefix("https://") || requestedURLText.hasPrefix("http://") {
             return URL(string: requestedURLText)
         }else{
             return URL(string:"https://" + requestedURLText)
@@ -90,4 +94,8 @@ extension ViewController {
         }
     }
     
+    private func showCurrentAddress() {
+        let currentAddress = webView.url
+        searchBarURL.text = currentAddress?.absoluteString
+    }
 }
