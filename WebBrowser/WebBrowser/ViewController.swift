@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         case moveForward = "앞으로 이동할 페이지가 없습니다."
         case moveBack = "뒤로 이동할 페이지가 없습니다."
         case loadPage = "페이지를 새로고침하는데 실패했습니다."
+        case validateAddress = "입력한 주소가 올바른 형태가 아닙니다."
     }
 
     override func viewDidLoad() {
