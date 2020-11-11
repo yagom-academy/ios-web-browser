@@ -40,17 +40,17 @@ class ViewController: UIViewController {
         }
     }
     
-    func changeUrl(input: String) {
+    @IBAction func touchUpChangeButton(_ sender: UIButton) {
+        let inputUrl: String? = inputText.text
+        guard let input: String = inputUrl else { return }
+
+        changeUrl(input)
+    }
+    
+    func changeUrl(_ input: String) {
         guard let inputUrl: URL = URL(string: input) else { return }
         let changeRequest: URLRequest = URLRequest(url: inputUrl)
         
         webView.load(changeRequest)
-    }
-    
-    @IBAction func touchUpChangeButton(_ sender: UIButton) {
-        let inputUrl: String? = inputText.text
-        guard let input: String = inputUrl else { return }
-        print(input)
-        changeUrl(input: input)
     }
 }
