@@ -57,10 +57,17 @@ class ViewController: UIViewController {
     }
     
     func verifyUrl(_ urlCheck: String) -> String {
-        var checkUrl = urlCheck
+        let checkUrl = urlCheck
         if !(checkUrl.hasPrefix("http://") || checkUrl.hasPrefix("https://")) {
-            checkUrl = "https://" + checkUrl
+            showAlertMessage()
         }
         return checkUrl
+    }
+    
+    func showAlertMessage() {
+        let alert = UIAlertController(title: nil, message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .cancel, handler : nil )
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
