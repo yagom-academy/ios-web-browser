@@ -32,21 +32,36 @@
                                 </subviews>
                             </stackView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2S3-8v-dfo">
-                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4U-yp-LuU">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="뒤로 가기" image="chevron.backward" catalog="system" id="tbv-Ei-3xn">
+                                        <inset key="imageInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="uNl-SB-8yu"/>
+                                    <barButtonItem title="앞으로 가기" image="chevron.forward" catalog="system" id="Lds-Fb-HG1"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="Kwk-oj-gU3"/>
+                                    <barButtonItem title="새로고침" image="arrow.counterclockwise" catalog="system" id="OmC-Or-JB8"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="g4U-yp-LuU" secondAttribute="bottom" id="AOC-IQ-jQ3"/>
                             <constraint firstItem="3J0-Vq-INd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="J9Z-wk-F6E"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3J0-Vq-INd" secondAttribute="trailing" constant="10" id="ZdU-tV-bCh"/>
+                            <constraint firstItem="g4U-yp-LuU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kRc-a5-XAy"/>
+                            <constraint firstAttribute="trailing" secondItem="g4U-yp-LuU" secondAttribute="trailing" id="lJl-qw-hPw"/>
                             <constraint firstItem="3J0-Vq-INd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="q9U-gi-lSK"/>
-                            <constraint firstAttribute="bottom" secondItem="2S3-8v-dfo" secondAttribute="bottom" id="qOz-00-uK5"/>
+                            <constraint firstItem="g4U-yp-LuU" firstAttribute="top" secondItem="2S3-8v-dfo" secondAttribute="bottom" id="qOz-00-uK5"/>
                             <constraint firstItem="2S3-8v-dfo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rTC-2U-LzE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2S3-8v-dfo" secondAttribute="trailing" id="scW-Ll-32X"/>
                             <constraint firstItem="2S3-8v-dfo" firstAttribute="top" secondItem="3J0-Vq-INd" secondAttribute="bottom" id="ujO-W8-baV"/>
@@ -62,6 +77,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
