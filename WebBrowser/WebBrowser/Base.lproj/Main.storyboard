@@ -24,6 +24,31 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d3O-XF-e0k">
+                                <rect key="frame" x="0.0" y="852" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XR1-Nk-rIJ"/>
+                                    <barButtonItem image="arrow.uturn.backward" catalog="system" id="qWb-Gj-sVe">
+                                        <connections>
+                                            <action selector="btnBack:" destination="BYZ-38-t0r" id="Ced-oc-e7w"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sQE-bS-MXv"/>
+                                    <barButtonItem title="Item" image="arrow.triangle.2.circlepath" catalog="system" id="bgW-TD-4uf">
+                                        <connections>
+                                            <action selector="btnReload:" destination="BYZ-38-t0r" id="WUx-em-yYX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CI8-Ke-mK8"/>
+                                    <barButtonItem title="Item" image="arrow.uturn.forward" catalog="system" id="7Xh-JA-qvb">
+                                        <connections>
+                                            <action selector="btnForward:" destination="BYZ-38-t0r" id="WCn-69-4ST"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="uMq-UV-aYn"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -44,6 +69,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.triangle.2.circlepath" catalog="system" width="128" height="101"/>
+        <image name="arrow.uturn.backward" catalog="system" width="128" height="112"/>
+        <image name="arrow.uturn.forward" catalog="system" width="128" height="112"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

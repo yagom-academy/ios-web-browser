@@ -25,6 +25,16 @@ class ViewController: UIViewController {
        
     }
 
-
+    @IBAction func btnBack(_ sender: Any) {
+        webViewMain.goBack()
+    }
+    
+    @IBAction func btnForward(_ sender: Any) {
+        webViewMain.goForward()
+    }
+    
+    @IBAction func btnReload(_ sender: Any) {
+        webViewMain.reload()
+    }
 }
 
