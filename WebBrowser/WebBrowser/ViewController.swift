@@ -5,11 +5,7 @@ import WebKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var buttonGoBack: UIBarButtonItem!
-    @IBOutlet weak var buttonReload: UIBarButtonItem!
-    @IBOutlet weak var buttonGoForward: UIBarButtonItem!
-    @IBOutlet weak var toolBar: UIToolbar!
-    @IBOutlet weak var inputText: UITextField!
+    @IBOutlet weak var inputField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,32 +20,32 @@ class ViewController: UIViewController {
         webView.load(request)
     }
     
-    @IBAction func buttonGoBack(_ sender: UIBarButtonItem) {
+    @IBAction func touchUpBackButton(_ sender: UIBarButtonItem) {
         if webView.canGoBack {
             webView.goBack()
         }
     }
 
-    @IBAction func buttonReload(_ sender: UIBarButtonItem) {
+    @IBAction func touchUpReloadButton(_ sender: UIBarButtonItem) {
         webView.reload()
     }
     
-    @IBAction func buttonGoForward(_ sender: UIBarButtonItem) {
+    @IBAction func touchUpForwardButton(_ sender: UIBarButtonItem) {
         if webView.canGoForward {
             webView.goForward()
         }
     }
     
     @IBAction func touchUpChangeButton(_ sender: UIButton) {
-        let inputUrl: String? = inputText.text
+        let inputUrl: String? = inputField.text
         guard let input: String = inputUrl else { return }
 
         changeUrl(input)
     }
     
     func changeUrl(_ input: String) {
-        guard let inputUrl: URL = URL(string: input) else { return }
-        let changeRequest: URLRequest = URLRequest(url: inputUrl)
+        guard let changeToUrl: URL = URL(string: input) else { return }
+        let changeRequest: URLRequest = URLRequest(url: changeToUrl)
         
         webView.load(changeRequest)
     }
