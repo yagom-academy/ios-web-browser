@@ -41,27 +41,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchUpChangeButton(_ sender: UIButton) {
-        let inputUrl: String? = inputText.text
-        guard let input: String = inputUrl else { return }
+        let inputTextUrl: String? = inputText.text
+        guard let inputUrl: String = inputTextUrl else { return }
 
-        changeUrl(input)
+        changeUrl(inputUrl)
     }
     
-    func changeUrl(_ input: String) {
-        let checkedUrl: String = verifyUrl(input)
+    func changeUrl(_ inputUrl: String) {
+        let identifiedUrl: String = verifyUrl(inputUrl)
         
-        guard let inputUrl: URL = URL(string: checkedUrl) else { return }
-        let changeRequest: URLRequest = URLRequest(url: inputUrl)
+        guard let changeUrl: URL = URL(string: identifiedUrl) else { return }
+        let changeRequest: URLRequest = URLRequest(url: changeUrl)
         
         webView.load(changeRequest)
     }
     
-    func verifyUrl(_ urlCheck: String) -> String {
-        let checkUrl = urlCheck
-        if !(checkUrl.hasPrefix("http://") || checkUrl.hasPrefix("https://")) {
+    func verifyUrl(_ unidentifiedUrl: String) -> String {
+        let identifyUrl = unidentifiedUrl
+        if !(identifyUrl.hasPrefix("http://") || identifyUrl.hasPrefix("https://")) {
             showAlertMessage()
         }
-        return checkUrl
+        return identifyUrl
     }
     
     func showAlertMessage() {
