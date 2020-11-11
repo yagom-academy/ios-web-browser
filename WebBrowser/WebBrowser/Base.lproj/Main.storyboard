@@ -52,6 +52,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wR1-Tq-hUx"/>
                                     <barButtonItem systemItem="fastForward" id="ZaY-7c-fJb">
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="goForwardPressed:" destination="BYZ-38-t0r" id="AxI-vp-982"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>

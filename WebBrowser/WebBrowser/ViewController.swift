@@ -50,4 +50,8 @@ class ViewController: UIViewController {
     @IBAction func goBackPressed(_ sender: UIBarButtonItem) {
         webView.goBack()
     }
+    
+    @IBAction func goForwardPressed(_ sender: UIBarButtonItem) {
+        webView.goForward()
+    }
 }
