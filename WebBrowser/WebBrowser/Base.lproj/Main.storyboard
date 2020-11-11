@@ -16,22 +16,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJX-eM-fcZ">
-                                <rect key="frame" x="20" y="54" width="374" height="808"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJX-eM-fcZ">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0yF-GL-GVv">
+                                <rect key="frame" x="20" y="44" width="334" height="50"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boo-Ca-gvx">
+                                <rect key="frame" x="364" y="44" width="30" height="50"/>
+                                <state key="normal" title="이동"/>
+                                <connections>
+                                    <action selector="tappedMoveToURLButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WwL-di-gdj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0yF-GL-GVv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5Qd-x5-nPX"/>
+                            <constraint firstItem="boo-Ca-gvx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AvW-Rk-9Hh"/>
+                            <constraint firstItem="0yF-GL-GVv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E3l-jE-i6B"/>
+                            <constraint firstItem="boo-Ca-gvx" firstAttribute="leading" secondItem="0yF-GL-GVv" secondAttribute="trailing" constant="10" id="FjQ-AI-5RR"/>
+                            <constraint firstItem="bJX-eM-fcZ" firstAttribute="top" secondItem="0yF-GL-GVv" secondAttribute="bottom" id="Twm-UU-lyH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="boo-Ca-gvx" secondAttribute="trailing" constant="20" id="ZdC-RI-Kq5"/>
+                            <constraint firstItem="bJX-eM-fcZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="bLE-K9-QrX"/>
+                            <constraint firstItem="bJX-eM-fcZ" firstAttribute="top" secondItem="boo-Ca-gvx" secondAttribute="bottom" id="jPU-oT-K8T"/>
+                            <constraint firstItem="bJX-eM-fcZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mQY-Zn-rwW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bJX-eM-fcZ" secondAttribute="trailing" id="nJg-ev-rs2"/>
+                            <constraint firstItem="bJX-eM-fcZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qd8-rc-9VC"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="webVeiw" destination="bJX-eM-fcZ" id="xE9-Lh-gsQ"/>
+                        <outlet property="moveToURLButton" destination="boo-Ca-gvx" id="DCu-Ig-GRt"/>
+                        <outlet property="serachURLBar" destination="0yF-GL-GVv" id="J1P-Ci-OOF"/>
+                        <outlet property="webView" destination="bJX-eM-fcZ" id="xE9-Lh-gsQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
