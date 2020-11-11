@@ -29,4 +29,13 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "확인", style: .cancel))
         self.present(alert, animated: true)
     }
+    
+    @IBAction func goPressed(_ sender: UIButton) {
+        guard let requestUrl = urlTextField.text else {
+            showInvaildUrlAlert()
+            return
+        }
+        
+        loadWebPage(url: requestUrl)
+    }
 }
