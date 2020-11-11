@@ -52,7 +52,7 @@
                                 <color key="tintColor" name="AccentColor"/>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-oi-HMY">
-                                <rect key="frame" x="75" y="5" width="329" height="34"/>
+                                <rect key="frame" x="316" y="5" width="88" height="34"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="이동"/>
@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kiu-wh-l17">
-                                <rect key="frame" x="10" y="5" width="65" height="34"/>
+                                <rect key="frame" x="10" y="5" width="298" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="VKU-qY-PDM"/>
                                 </constraints>
