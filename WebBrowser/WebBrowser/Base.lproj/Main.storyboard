@@ -17,21 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiI-P1-HPF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="uMK-Ly-sQr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="BiI-P1-HPF" secondAttribute="bottom" id="1iD-Rk-0aj"/>
+                            <constraint firstItem="uMK-Ly-sQr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ANS-E2-Wul"/>
                             <constraint firstItem="BiI-P1-HPF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MB5-3d-FBy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BiI-P1-HPF" secondAttribute="trailing" id="Qe6-Xc-LYV"/>
-                            <constraint firstItem="BiI-P1-HPF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hqp-Ss-tsv"/>
+                            <constraint firstItem="uMK-Ly-sQr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UDj-aj-Afd"/>
+                            <constraint firstItem="BiI-P1-HPF" firstAttribute="top" secondItem="uMK-Ly-sQr" secondAttribute="bottom" id="cSA-eS-gr2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uMK-Ly-sQr" secondAttribute="trailing" id="jFd-fI-l3F"/>
                             <constraint firstItem="BiI-P1-HPF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nw1-k1-Bff"/>
                         </constraints>
                         <variation key="default">
@@ -46,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="131"/>
+            <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>
         </scene>
     </scenes>
     <resources>
