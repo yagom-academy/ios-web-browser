@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var invalidURLLabel: UILabel!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        searchBarURL.delegate = self
         invalidURLLabel.isHidden = true
         
         guard let initialURL = URL(string: "https://m.naver.com") else {
@@ -39,14 +39,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func goBack() {
-        
         if webView.canGoBack {
             webView.goBack()
         }
     }
     
     @IBAction func goForward() {
-        
         if webView.canGoForward {
             webView.goForward()
         }
@@ -72,9 +70,18 @@ class ViewController: UIViewController {
         }
     }
 }
+extension ViewController: UISearchBarDelegate {
+    private func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.becomeFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        tappedMoveToURLButton(moveToURLButton)
+        searchBar.resignFirstResponder()
+    }
+}
 
 extension ViewController {
-    
     private func loadWebView(of requestedURL: URL) {
         let urlRequest = URLRequest(url: requestedURL)
         searchBarURL.text = requestedURL.absoluteString
