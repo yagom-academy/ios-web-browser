@@ -42,4 +42,8 @@ class ViewController: UIViewController {
     @IBAction func stopPressed(_ sender: UIBarButtonItem) {
         webView.stopLoading()
     }
+    
+    @IBAction func reloadPressed(_ sender: UIBarButtonItem) {
+        webView.reload()
+    }
 }
