@@ -48,9 +48,19 @@ class ViewController: UIViewController {
     }
     
     func changeUrl(_ input: String) {
-        guard let inputUrl: URL = URL(string: input) else { return }
+        let checkedUrl: String = verifyUrl(input)
+        
+        guard let inputUrl: URL = URL(string: checkedUrl) else { return }
         let changeRequest: URLRequest = URLRequest(url: inputUrl)
         
         webView.load(changeRequest)
+    }
+    
+    func verifyUrl(_ urlCheck: String) -> String {
+        var checkUrl = urlCheck
+        if !(checkUrl.hasPrefix("http://") || checkUrl.hasPrefix("https://")) {
+            checkUrl = "https://" + checkUrl
+        }
+        return checkUrl
     }
 }
