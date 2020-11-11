@@ -17,57 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJX-eM-fcZ">
-                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtC-MU-xBD">
-                                <rect key="frame" x="10" y="813" width="394" height="49"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="TEb-XH-0YC"/>
-                                    <barButtonItem title="back" style="plain" id="KX8-HM-wvI">
-                                        <inset key="landscapeImageInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="42Q-YP-odQ">
-                                            <rect key="frame" x="0.0" y="5" width="95" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal" image="chevron.backward" catalog="system"/>
-                                            <connections>
-                                                <action selector="goBack" destination="BYZ-38-t0r" eventType="touchUpInside" id="5A6-Bz-Sai"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="kQ5-wt-EH2"/>
-                                    <barButtonItem title="refresh" style="plain" id="8oU-Gy-icQ">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="La6-ml-5hU">
-                                            <rect key="frame" x="137" y="16" width="150" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="arrow.clockwise" catalog="system"/>
-                                            <connections>
-                                                <action selector="reloadPage" destination="BYZ-38-t0r" eventType="touchUpInside" id="vEw-5z-Juo"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="EWb-gc-Ss8"/>
-                                    <barButtonItem title="forward" style="plain" id="qRr-3N-BR7">
-                                        <inset key="landscapeImageInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K3D-vg-swl">
-                                            <rect key="frame" x="299" y="5" width="95" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="chevron.forward" catalog="system"/>
-                                            <connections>
-                                                <action selector="goForward" destination="BYZ-38-t0r" eventType="touchUpInside" id="Etf-w5-6mJ"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="H24-uQ-zgy"/>
-                                </items>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </toolbar>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0yF-GL-GVv">
                                 <rect key="frame" x="20" y="44" width="334" height="50"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -79,28 +35,83 @@
                                     <action selector="tappedMoveToURLButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WwL-di-gdj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="infoLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpy-ro-dPv">
+                                <rect key="frame" x="0.0" y="437.5" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtC-MU-xBD">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="0gh-eB-YCD"/>
+                                    <barButtonItem style="plain" id="KGF-c6-rzF">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vwG-ja-jsj">
+                                            <rect key="frame" x="92.5" y="16" width="13" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="chevron.backward" catalog="system"/>
+                                            <connections>
+                                                <action selector="goBack" destination="BYZ-38-t0r" eventType="touchUpInside" id="RMT-gN-vQ9"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="g1q-v4-P8o"/>
+                                    <barButtonItem style="plain" id="l1S-E3-yOU">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rx8-bX-58j">
+                                            <rect key="frame" x="198" y="16" width="18" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                            <connections>
+                                                <action selector="reloadPage" destination="BYZ-38-t0r" eventType="touchUpInside" id="tPr-06-VTj"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Swx-WF-ft9"/>
+                                    <barButtonItem style="plain" id="5Ll-kH-Zf3">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l2g-1E-r1i">
+                                            <rect key="frame" x="308.5" y="16" width="13" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="chevron.forward" catalog="system"/>
+                                            <connections>
+                                                <action selector="goForward" destination="BYZ-38-t0r" eventType="touchUpInside" id="8GX-Gh-p4v"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="CTT-Yx-sjL"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-			<constraints>
+                        <constraints>
                             <constraint firstItem="0yF-GL-GVv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5Qd-x5-nPX"/>
                             <constraint firstItem="boo-Ca-gvx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AvW-Rk-9Hh"/>
                             <constraint firstItem="0yF-GL-GVv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E3l-jE-i6B"/>
                             <constraint firstItem="boo-Ca-gvx" firstAttribute="leading" secondItem="0yF-GL-GVv" secondAttribute="trailing" constant="10" id="FjQ-AI-5RR"/>
+                            <constraint firstItem="Tpy-ro-dPv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KB1-O4-Tn8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tpy-ro-dPv" secondAttribute="trailing" id="Kad-of-odi"/>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="top" secondItem="bJX-eM-fcZ" secondAttribute="bottom" id="PLp-Si-Xw3"/>
+                            <constraint firstItem="Tpy-ro-dPv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T4u-Df-OMU"/>
                             <constraint firstItem="bJX-eM-fcZ" firstAttribute="top" secondItem="0yF-GL-GVv" secondAttribute="bottom" id="Twm-UU-lyH"/>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ZPb-aq-Fvh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="boo-Ca-gvx" secondAttribute="trailing" constant="20" id="ZdC-RI-Kq5"/>
                             <constraint firstItem="bJX-eM-fcZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="bLE-K9-QrX"/>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eEe-GB-GCl"/>
                             <constraint firstItem="bJX-eM-fcZ" firstAttribute="top" secondItem="boo-Ca-gvx" secondAttribute="bottom" id="jPU-oT-K8T"/>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="top" secondItem="bJX-eM-fcZ" secondAttribute="bottom" id="kDH-Az-Ual"/>
                             <constraint firstItem="bJX-eM-fcZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mQY-Zn-rwW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bJX-eM-fcZ" secondAttribute="trailing" id="nJg-ev-rs2"/>
-                            <constraint firstItem="bJX-eM-fcZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qd8-rc-9VC"/>
+                            <constraint firstItem="LtC-MU-xBD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oYS-Fm-Yon"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="goBackButton" destination="KX8-HM-wvI" id="e0r-vw-4eB"/>
-                        <outlet property="goForwardButton" destination="qRr-3N-BR7" id="2MP-Ql-jkW"/>
-                        <outlet property="reloadPageButton" destination="8oU-Gy-icQ" id="idh-57-nHw"/>
+                        <outlet property="goBackButton" destination="KGF-c6-rzF" id="Onz-rF-E45"/>
+                        <outlet property="goForwardButton" destination="5Ll-kH-Zf3" id="Xm9-HP-CEL"/>
+                        <outlet property="invalidURLLabel" destination="Tpy-ro-dPv" id="fHk-Ax-VvT"/>
                         <outlet property="moveToURLButton" destination="boo-Ca-gvx" id="DCu-Ig-GRt"/>
+                        <outlet property="reloadPageButton" destination="l1S-E3-yOU" id="ip0-r1-FAP"/>
                         <outlet property="serachURLBar" destination="0yF-GL-GVv" id="J1P-Ci-OOF"/>
                         <outlet property="webView" destination="bJX-eM-fcZ" id="xE9-Lh-gsQ"/>
                     </connections>

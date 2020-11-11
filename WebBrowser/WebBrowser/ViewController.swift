@@ -15,18 +15,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var reloadPageButton: UIBarButtonItem!
     @IBOutlet weak var serachURLBar: UISearchBar!
     @IBOutlet weak var moveToURLButton: UIButton!
+    @IBOutlet weak var invalidURLLabel: UILabel!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-    
-        guard let initialURL = URL(string: "https://m.naver.com") else {
-                    print("URL is nil : 잘못된 값이 입력되었습니다.")
-                    return
+        invalidURLLabel.isHidden = true
+        
+        guard let initialURL = URL(string: "https://m.naver.com ") else {
+            print("URL is nil : 잘못된 값이 입력되었습니다.")
+            invalidURLLabel.text = "잘못된 URL값 입니다."
+            invalidURLLabel.isHidden = false
+            return
         }
         
-        loadURL(of: initialURL)
-
+        loadWebView(of: initialURL)
+        
+        goBackButton.isEnabled = webView.canGoBack
+        goForwardButton.isEnabled = webView.canGoForward
+        
+        webView.addObserver(self, forKeyPath: "loading", options: .new, context: nil)
+        
     }
     
     @IBAction func goBack() {
@@ -44,27 +53,33 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reloadPage() {
-        
         webView.reload()
     }
-        
+    
     @IBAction func tappedMoveToURLButton(_ sender: UIButton) {
         
         guard let requestedURLText = serachURLBar.text else {
             return
         }
         
-        guard let requestedURL = URL(string: "https://"+requestedURLText) else{
+        guard let requestedURL = URL(string: "https://"+requestedURLText) else {
             return
         }
         
-        loadURL(of: requestedURL)
+        loadWebView(of: requestedURL)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if (keyPath == "loading") {
+            goBackButton.isEnabled = webView.canGoBack
+            goForwardButton.isEnabled = webView.canGoForward
+        }
     }
 }
 
 extension ViewController {
     
-    private func loadURL(of requestedURL: URL){
+    private func loadWebView(of requestedURL: URL) {
         let urlRequest = URLRequest(url: requestedURL)
         serachURLBar.text = requestedURL.absoluteString
         webView.load(urlRequest)
