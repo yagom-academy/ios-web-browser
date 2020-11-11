@@ -68,6 +68,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="barkButton" destination="tbv-Ei-3xn" id="tbc-zH-UcZ"/>
+                        <outlet property="forwarkButton" destination="Lds-Fb-HG1" id="Xj9-Hf-Osy"/>
+                        <outlet property="moveButton" destination="542-Mk-ClS" id="SUN-Vj-xlw"/>
+                        <outlet property="reloadButton" destination="OmC-Or-JB8" id="fHN-Ct-yGA"/>
+                        <outlet property="searchBar" destination="edh-DM-wlb" id="IdV-hK-DLz"/>
                         <outlet property="webView" destination="2S3-8v-dfo" id="2TE-XS-GNx"/>
                     </connections>
                 </viewController>

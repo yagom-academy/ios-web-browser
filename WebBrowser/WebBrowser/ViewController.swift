@@ -7,9 +7,15 @@
 import UIKit
 import WebKit
 
+// TODO: add indicator
 class ViewController: UIViewController {
-    // TODO: add indicator
+    
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var moveButton: UIButton!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var forwarkButton: UIBarButtonItem!
+    @IBOutlet weak var reloadButton: UIBarButtonItem!
     
     private let myAddress = "https://www.indiepost.co.kr"
 
