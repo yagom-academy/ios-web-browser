@@ -17,15 +17,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setWebView()
+        setWebView(url: myAddress)
     }
     
-    func setWebView() {
-        guard let url = URL(string: myAddress) else {
+    func setWebView(url: String) {
+        guard let setUrl = URL(string: url) else {
             return showErrorAlert()
         }
         
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: setUrl)
         webView.load(request)
     }
     
