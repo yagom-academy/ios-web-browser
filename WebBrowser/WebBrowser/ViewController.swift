@@ -58,6 +58,7 @@ class ViewController: UIViewController {
     
     @IBAction func tappedMoveToURLButton(_ sender: UIButton) {
         guard let requestedURL = convertToURL(of: searchBarURL.text) else {
+            print("URL is nil : 잘못된 값이 입력되었습니다.")
             return
         }
         loadWebView(of: requestedURL)
@@ -74,11 +75,10 @@ class ViewController: UIViewController {
 
 extension ViewController {
     
-    private func loadWebView(of requestedURL: URL){
+    private func loadWebView(of requestedURL: URL) {
         let urlRequest = URLRequest(url: requestedURL)
         searchBarURL.text = requestedURL.absoluteString
         webView.load(urlRequest)
-        
     }
     
     private func convertToURL(of searchBarText: String?) -> URL? {
