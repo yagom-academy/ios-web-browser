@@ -76,18 +76,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func movePage() {
-        
-    }
-}
-
-extension ViewController : UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
         guard let urlString = searchBar.text,
               !urlString.isEmpty else {
             return self.showErrorAlert(error: .emptyAddress)
         }
-        
         self.requestURL(urlString: urlString)
+    }
+}
+
+extension ViewController : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.movePage()
     }
 }
