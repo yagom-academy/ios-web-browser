@@ -46,4 +46,8 @@ class ViewController: UIViewController {
     @IBAction func reloadPressed(_ sender: UIBarButtonItem) {
         webView.reload()
     }
+    
+    @IBAction func goBackPressed(_ sender: UIBarButtonItem) {
+        webView.goBack()
+    }
 }
