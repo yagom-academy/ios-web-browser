@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         }
         
         let request = URLRequest(url: url)
+        print(request)
         webView.load(request)
     }
     
@@ -93,15 +94,25 @@ extension ViewController : UISearchBarDelegate {
 }
 
 extension ViewController : WKNavigationDelegate {
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+//
+//        if navigationAction.navigationType == .linkActivated {
+//            guard let url = navigationAction.request.url else {
+//                return
+//            }
+//            let redirectUrlString = url.absoluteString
+//            self.requestURL(urlString: redirectUrlString)
+//        }
+//        decisionHandler(.allow)
+//    }
+    
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         
-        if navigationAction.navigationType == .linkActivated {
-            guard let url = navigationAction.request.url else {
-                return
-            }
-            let redirectUrlString = url.absoluteString
-            self.requestURL(urlString: redirectUrlString)
+        print("redirect")
+        guard let urlString = webView.url?.absoluteString else {
+            return showErrorAlert(error: .loadPage)
         }
-        decisionHandler(.allow)
+        print("redirect url: \(urlString)")
+        self.requestURL(urlString: urlString)
     }
 }
