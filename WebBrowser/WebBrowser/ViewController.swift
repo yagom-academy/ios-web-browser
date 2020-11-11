@@ -70,4 +70,8 @@ class ViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    func autoChangeUrl(_ autoUrl: String) -> String {
+        
+    }
 }
