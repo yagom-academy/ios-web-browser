@@ -10,14 +10,17 @@ import WebKit
 class ViewController: UIViewController {
     // TODO: add indicator
     @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var searchBar: UISearchBar!
+    
     
     private let myAddress = "https://www.indiepost.co.kr"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setWebView(url: myAddress)
+    }
+    
+    @IBAction func moveToURL(_ sender: UIButton) {
     }
     
     func setWebView(url: String) {

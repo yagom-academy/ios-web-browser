@@ -17,34 +17,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiI-P1-HPF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="812"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jE-0T-Gt8">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jE-0T-Gt8">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="hwW-up-XDL"/>
+                                    <constraint firstAttribute="height" constant="44" id="yS1-PC-xex"/>
+                                </constraints>
                                 <items>
-                                    <barButtonItem title="Item" id="cra-Ak-5X6"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="ias-PU-3k3"/>
+                                    <barButtonItem title="Item" image="backward.fill" catalog="system" id="cra-Ak-5X6"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fQD-9y-tNz"/>
+                                    <barButtonItem title="Item" image="forward.fill" catalog="system" id="xhl-YR-lqa"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ZdJ-Qj-JoZ"/>
+                                    <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="P5n-ZH-16c"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="5JM-zp-nal"/>
                                 </items>
                             </toolbar>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MrP-oy-b6U">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2yB-vv-Fpi">
+                                <rect key="frame" x="0.0" y="34" width="338" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="338" id="SK1-un-z17"/>
+                                    <constraint firstAttribute="height" constant="40" id="urd-3e-YpN"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlc-jL-SZ0">
+                                <rect key="frame" x="348" y="36.5" width="56" height="35"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="LCK-jn-uCc"/>
+                                    <constraint firstAttribute="width" constant="56" id="WrK-jN-x2L"/>
+                                </constraints>
+                                <state key="normal" title="move">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="moveToURL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQp-en-xQw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="BiI-P1-HPF" secondAttribute="bottom" id="1iD-Rk-0aj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rlc-jL-SZ0" secondAttribute="trailing" constant="10" id="4W2-O8-Tos"/>
+                            <constraint firstItem="rlc-jL-SZ0" firstAttribute="centerY" secondItem="2yB-vv-Fpi" secondAttribute="centerY" id="EEc-9z-UsM"/>
+                            <constraint firstItem="2yB-vv-Fpi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KoV-YN-B4i"/>
                             <constraint firstItem="BiI-P1-HPF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MB5-3d-FBy"/>
+                            <constraint firstItem="rlc-jL-SZ0" firstAttribute="leading" secondItem="2yB-vv-Fpi" secondAttribute="trailing" constant="10" id="Os6-y8-tnj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BiI-P1-HPF" secondAttribute="trailing" id="Qe6-Xc-LYV"/>
-                            <constraint firstItem="BiI-P1-HPF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hqp-Ss-tsv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2yB-vv-Fpi" secondAttribute="trailing" constant="76" id="UcK-E6-MOh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="2yB-vv-Fpi" secondAttribute="top" constant="10" id="aTC-2d-XCN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3jE-0T-Gt8" secondAttribute="trailing" id="fEf-Od-TJP"/>
+                            <constraint firstItem="3jE-0T-Gt8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g0H-eE-J5T"/>
+                            <constraint firstItem="BiI-P1-HPF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="hqp-Ss-tsv"/>
                             <constraint firstItem="BiI-P1-HPF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nw1-k1-Bff"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3jE-0T-Gt8" secondAttribute="bottom" id="s4N-Pf-Dmn"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -53,17 +88,20 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="MrP-oy-b6U" id="uvz-70-p37"/>
+                        <outlet property="searchBar" destination="2yB-vv-Fpi" id="e3V-5B-5rS"/>
                         <outlet property="toolBar" destination="3jE-0T-Gt8" id="KdI-mG-qtE"/>
                         <outlet property="webView" destination="BiI-P1-HPF" id="Pbw-Ne-ABa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="131"/>
+            <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="backward.fill" catalog="system" width="128" height="79"/>
+        <image name="forward.fill" catalog="system" width="128" height="79"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
