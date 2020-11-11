@@ -40,8 +40,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
         present(alert, animated: false, completion: nil)
     }
     
+    // 버튼
     @IBAction func moveToURL(_ sender: UIButton) {
-        setWebView(url: searchBar.text ?? "")
+        searchBarSearchButtonClicked(searchBar)
     }
     
     @IBAction func goBackButton(_ sender: UIBarButtonItem) {
@@ -56,5 +57,15 @@ class ViewController: UIViewController, UISearchBarDelegate {
         webView.reload()
     }
     
+    
+    // 키보드 제어
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    // search 누르면 키보드 내리기
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        setWebView(url: searchBar.text ?? "")
+    }
 }
 
