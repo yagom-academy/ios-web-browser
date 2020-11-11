@@ -38,4 +38,8 @@ class ViewController: UIViewController {
         
         loadWebPage(url: requestUrl)
     }
+    
+    @IBAction func stopPressed(_ sender: UIBarButtonItem) {
+        webView.stopLoading()
+    }
 }
