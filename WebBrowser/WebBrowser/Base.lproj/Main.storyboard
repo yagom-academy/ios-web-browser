@@ -24,27 +24,42 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cJ7-Ik-7DS">
-                                <rect key="frame" x="0.0" y="44" width="380" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cJ7-Ik-7DS">
+                                <rect key="frame" x="10" y="44" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-eV-bih">
-                                <rect key="frame" x="380" y="44" width="34" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-eV-bih">
+                                <rect key="frame" x="374" y="44" width="30" height="34"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="이동">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToEnteredURL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOx-VU-JHk"/>
+                                </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2DZ-fg-MmA">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" id="36W-3f-g7G"/>
+                                    <barButtonItem image="arrow.backward" catalog="system" id="36W-3f-g7G">
+                                        <connections>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="Dlo-zM-tAX"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xmZ-pp-K3w"/>
-                                    <barButtonItem title="Item" id="y3w-ki-3RS"/>
+                                    <barButtonItem image="arrow.clockwise" catalog="system" id="y3w-ki-3RS">
+                                        <connections>
+                                            <action selector="reload:" destination="BYZ-38-t0r" id="VNf-82-7dj"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="i50-IP-jxv"/>
-                                    <barButtonItem title="Item" id="H7U-2f-KqR"/>
+                                    <barButtonItem image="arrow.forward" catalog="system" id="H7U-2f-KqR">
+                                        <connections>
+                                            <action selector="goForward:" destination="BYZ-38-t0r" id="kEG-wY-wFF"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -54,11 +69,11 @@
                             <constraint firstItem="RWc-eV-bih" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1aq-xY-1F5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2DZ-fg-MmA" secondAttribute="bottom" id="3Aa-p4-XTv"/>
                             <constraint firstItem="2DZ-fg-MmA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="H0U-dd-Wx3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RWc-eV-bih" secondAttribute="trailing" id="NWi-wP-6Kl"/>
-                            <constraint firstItem="RWc-eV-bih" firstAttribute="leading" secondItem="cJ7-Ik-7DS" secondAttribute="trailing" id="Nhi-kT-tmJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RWc-eV-bih" secondAttribute="trailing" constant="10" id="NWi-wP-6Kl"/>
+                            <constraint firstItem="RWc-eV-bih" firstAttribute="leading" secondItem="cJ7-Ik-7DS" secondAttribute="trailing" constant="10" id="Nhi-kT-tmJ"/>
                             <constraint firstItem="2DZ-fg-MmA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O1h-0A-4HP"/>
                             <constraint firstItem="cJ7-Ik-7DS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c80-nC-BxS"/>
-                            <constraint firstItem="cJ7-Ik-7DS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e9e-MY-SAZ"/>
+                            <constraint firstItem="cJ7-Ik-7DS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="e9e-MY-SAZ"/>
                             <constraint firstItem="xrh-cr-T1F" firstAttribute="top" secondItem="cJ7-Ik-7DS" secondAttribute="bottom" id="eA6-19-5Qm"/>
                             <constraint firstItem="xrh-cr-T1F" firstAttribute="top" secondItem="RWc-eV-bih" secondAttribute="bottom" id="ggI-cG-iWE"/>
                             <constraint firstItem="xrh-cr-T1F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kg3-I9-Oer"/>
@@ -67,6 +82,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="goButton" destination="RWc-eV-bih" id="I9z-Xr-tfa"/>
+                        <outlet property="urlEnteredTextField" destination="cJ7-Ik-7DS" id="g20-bN-q1t"/>
                         <outlet property="webView" destination="xrh-cr-T1F" id="QHx-MC-N2l"/>
                     </connections>
                 </viewController>
@@ -76,6 +93,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
