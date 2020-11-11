@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var goBackButton: UIBarButtonItem!
     @IBOutlet weak var goForwardButton: UIBarButtonItem!
     @IBOutlet weak var reloadPageButton: UIBarButtonItem!
-    @IBOutlet weak var serachURLBar: UISearchBar!
+    @IBOutlet weak var searchBarURL: UISearchBar!
     @IBOutlet weak var moveToURLButton: UIButton!
     @IBOutlet weak var invalidURLLabel: UILabel!
     
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         invalidURLLabel.isHidden = true
         
-        guard let initialURL = URL(string: "https://m.naver.com ") else {
+        guard let initialURL = URL(string: "https://m.naver.com") else {
             print("URL is nil : 잘못된 값이 입력되었습니다.")
             invalidURLLabel.text = "잘못된 URL값 입니다."
             invalidURLLabel.isHidden = false
@@ -57,15 +57,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedMoveToURLButton(_ sender: UIButton) {
-        
-        guard let requestedURLText = serachURLBar.text else {
+        guard let requestedURL = convertToURL(of: searchBarURL.text) else {
             return
         }
-        
-        guard let requestedURL = URL(string: "https://"+requestedURLText) else {
-            return
-        }
-        
         loadWebView(of: requestedURL)
     }
     
@@ -76,13 +70,24 @@ class ViewController: UIViewController {
         }
     }
 }
-
 extension ViewController {
-    
-    private func loadWebView(of requestedURL: URL) {
+    private func loadWebView(of requestedURL: URL){
         let urlRequest = URLRequest(url: requestedURL)
-        serachURLBar.text = requestedURL.absoluteString
+        searchBarURL.text = requestedURL.absoluteString
         webView.load(urlRequest)
+    }
+    
+    private func convertToURL(of searchBarText: String?) -> URL? {
+        guard let requestedURLText = searchBarText else {
+            return nil
+        }
+        
+        if requestedURLText.hasPrefix("https://") {
+            return URL(string: requestedURLText)
+        }else{
+            return URL(string:"https://" + requestedURLText)
+            
+        }
     }
     
 }
