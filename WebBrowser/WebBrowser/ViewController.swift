@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     
     func setUI() {
         searchBar.delegate = self
+        webView.navigationDelegate = self
     }
     
     func setWebView() {
@@ -88,5 +89,19 @@ class ViewController: UIViewController {
 extension ViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.movePage()
+    }
+}
+
+extension ViewController : WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        if navigationAction.navigationType == .linkActivated {
+            guard let url = navigationAction.request.url else {
+                return
+            }
+            let redirectUrlString = url.absoluteString
+            self.requestURL(urlString: redirectUrlString)
+        }
+        decisionHandler(.allow)
     }
 }
