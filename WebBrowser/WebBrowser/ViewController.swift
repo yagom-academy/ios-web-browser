@@ -9,7 +9,7 @@ import WebKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var webVeiw: WKWebView!
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var goBackButton: UIBarButtonItem!
     @IBOutlet weak var goForwardButton: UIBarButtonItem!
     @IBOutlet weak var reloadPageButton: UIBarButtonItem!
@@ -31,21 +31,21 @@ class ViewController: UIViewController {
     
     @IBAction func goBack() {
         
-        if webVeiw.canGoBack {
-            webVeiw.goBack()
+        if webView.canGoBack {
+            webView.goBack()
         }
     }
     
     @IBAction func goForward() {
         
-        if webVeiw.canGoForward {
-            webVeiw.goForward()
+        if webView.canGoForward {
+            webView.goForward()
         }
     }
     
     @IBAction func reloadPage() {
         
-        webVeiw.reload()
+        webView.reload()
     }
         
     @IBAction func tappedMoveToURLButton(_ sender: UIButton) {
