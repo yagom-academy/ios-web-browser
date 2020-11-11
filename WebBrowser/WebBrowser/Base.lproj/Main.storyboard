@@ -82,13 +82,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <connections>
-                        <outlet property="goBackButton" destination="KX8-HM-wvI" id="e0r-vw-4eB"/>
-                        <outlet property="goForwardButton" destination="qRr-3N-BR7" id="2MP-Ql-jkW"/>
-                        <outlet property="reloadPageButton" destination="8oU-Gy-icQ" id="idh-57-nHw"/>
-                        <outlet property="moveToURLButton" destination="boo-Ca-gvx" id="DCu-Ig-GRt"/>
-                        <outlet property="serachURLBar" destination="0yF-GL-GVv" id="J1P-Ci-OOF"/>
-                        <outlet property="webView" destination="bJX-eM-fcZ" id="xE9-Lh-gsQ"/>
+			<constraints>
                             <constraint firstItem="0yF-GL-GVv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5Qd-x5-nPX"/>
                             <constraint firstItem="boo-Ca-gvx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AvW-Rk-9Hh"/>
                             <constraint firstItem="0yF-GL-GVv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E3l-jE-i6B"/>
@@ -101,8 +95,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bJX-eM-fcZ" secondAttribute="trailing" id="nJg-ev-rs2"/>
                             <constraint firstItem="bJX-eM-fcZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qd8-rc-9VC"/>
                         </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="goBackButton" destination="KX8-HM-wvI" id="e0r-vw-4eB"/>
+                        <outlet property="goForwardButton" destination="qRr-3N-BR7" id="2MP-Ql-jkW"/>
+                        <outlet property="reloadPageButton" destination="8oU-Gy-icQ" id="idh-57-nHw"/>
+                        <outlet property="moveToURLButton" destination="boo-Ca-gvx" id="DCu-Ig-GRt"/>
+                        <outlet property="serachURLBar" destination="0yF-GL-GVv" id="J1P-Ci-OOF"/>
+                        <outlet property="webView" destination="bJX-eM-fcZ" id="xE9-Lh-gsQ"/>
                     </connections>
-                   </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
