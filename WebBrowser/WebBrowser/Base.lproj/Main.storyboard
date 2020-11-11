@@ -32,15 +32,27 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="ias-PU-3k3"/>
-                                    <barButtonItem title="Item" image="backward.fill" catalog="system" id="cra-Ak-5X6"/>
+                                    <barButtonItem title="Item" image="backward.fill" catalog="system" id="cra-Ak-5X6">
+                                        <connections>
+                                            <action selector="goBackButton:" destination="BYZ-38-t0r" id="F3A-yL-qXL"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fQD-9y-tNz"/>
-                                    <barButtonItem title="Item" image="forward.fill" catalog="system" id="xhl-YR-lqa"/>
+                                    <barButtonItem title="Item" image="forward.fill" catalog="system" id="xhl-YR-lqa">
+                                        <connections>
+                                            <action selector="goForwardButton:" destination="BYZ-38-t0r" id="qfJ-RU-402"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ZdJ-Qj-JoZ"/>
-                                    <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="P5n-ZH-16c"/>
+                                    <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="P5n-ZH-16c">
+                                        <connections>
+                                            <action selector="refreshButton:" destination="BYZ-38-t0r" id="JzX-bL-A8I"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="5JM-zp-nal"/>
                                 </items>
                             </toolbar>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2yB-vv-Fpi">
+                            <searchBar contentMode="redraw" placeholder="이동할 주소 입력" translatesAutoresizingMaskIntoConstraints="NO" id="2yB-vv-Fpi">
                                 <rect key="frame" x="0.0" y="34" width="338" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="338" id="SK1-un-z17"/>
@@ -89,7 +101,6 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="2yB-vv-Fpi" id="e3V-5B-5rS"/>
-                        <outlet property="toolBar" destination="3jE-0T-Gt8" id="KdI-mG-qtE"/>
                         <outlet property="webView" destination="BiI-P1-HPF" id="Pbw-Ne-ABa"/>
                     </connections>
                 </viewController>

@@ -7,7 +7,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
     // TODO: add indicator
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -17,11 +17,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
+        searchBar.text = myAddress
         setWebView(url: myAddress)
     }
-    
-    @IBAction func moveToURL(_ sender: UIButton) {
-    }
+
     
     func setWebView(url: String) {
         guard let setUrl = URL(string: url) else {
@@ -38,5 +39,22 @@ class ViewController: UIViewController {
         alert.addAction(confirmAction)
         present(alert, animated: false, completion: nil)
     }
+    
+    @IBAction func moveToURL(_ sender: UIButton) {
+        setWebView(url: searchBar.text ?? "")
+    }
+    
+    @IBAction func goBackButton(_ sender: UIBarButtonItem) {
+        webView.goBack()
+    }
+    
+    @IBAction func goForwardButton(_ sender: UIBarButtonItem) {
+        webView.goForward()
+    }
+    
+    @IBAction func reloadButton(_ sender: UIBarButtonItem) {
+        webView.reload()
+    }
+    
 }
 
