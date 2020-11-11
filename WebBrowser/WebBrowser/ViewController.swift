@@ -18,18 +18,27 @@ class ViewController: UIViewController {
         case moveForward = "앞으로 이동할 페이지가 없습니다."
         case moveBack = "뒤로 이동할 페이지가 없습니다."
         case loadPage = "페이지를 새로고침하는데 실패했습니다."
+        case emptyAddress = "이동하고 싶은 URL을 입력해주세요."
         case validateAddress = "입력한 주소가 올바른 형태가 아닙니다."
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
         setWebView()
     }
     
+    func setUI() {
+        searchBar.delegate = self
+    }
+    
     func setWebView() {
-        
         let startUrl = "https://www.indiepost.co.kr"
-        guard let url = URL(string: startUrl) else {
+        requestURL(urlString: startUrl)
+    }
+    
+    func requestURL(urlString: String) {
+        guard let url = URL(string: urlString) else {
             return showErrorAlert(error: .convertUrl)
         }
         
@@ -63,7 +72,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reloadPage() {
-        
+        webView.reload()
     }
     
     @IBAction func movePage() {
@@ -71,3 +80,14 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+        guard let urlString = searchBar.text,
+              !urlString.isEmpty else {
+            return self.showErrorAlert(error: .emptyAddress)
+        }
+        
+        self.requestURL(urlString: urlString)
+    }
+}
