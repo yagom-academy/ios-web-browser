@@ -21,7 +21,7 @@
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="이동하고 싶은 URL을 입력해주세요" translatesAutoresizingMaskIntoConstraints="NO" id="edh-DM-wlb">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="56"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go" textContentType="url"/>
                                     </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="542-Mk-ClS">
                                         <rect key="frame" x="328" y="0.0" width="66" height="56"/>
