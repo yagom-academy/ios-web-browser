@@ -81,9 +81,9 @@ class ViewController: UIViewController {
         self.searchBar.endEditing(true)
         guard let urlString = searchBar.text,
               urlString.isNotEmpty else {
-            return self.showErrorAlert(error: .emptyAddress)
+            return showErrorAlert(error: .emptyAddress)
         }
-        self.requestURL(urlString: urlString)
+        requestURL(urlString: urlString)
     }
 }
 
