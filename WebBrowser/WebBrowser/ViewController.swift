@@ -15,24 +15,33 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let favoriteURL: String? = "https://www.github.com"
+        let favoriteURL: String = "https://www.github.com"
         loadWebPageToWebView(to: favoriteURL)
     }
     
-    func convertStringToURL(input url: String?) -> URL? {
-        guard let stringURL = url else { print("입력 URL이 없어서 종료됩니다."); return nil }
-        let convertedURL: URL? = URL(string: stringURL)
+    func convertStringToURL(input string: String?) -> URL? {
+        guard let urlString = string else {
+            print("입력 URL이 없어서 종료됩니다.")
+            return nil
+        }
+        let convertedURL: URL? = URL(string: urlString)
         return convertedURL
     }
     
-    func loadWebPageToWebView(to url: String?) {
-        guard let requestedURL = convertStringToURL(input: url) else { print("변환된 URL이 존재하지 않습니다."); return }
+    private func loadWebPageToWebView(to string: String?) {
+        guard let requestedURL = convertStringToURL(input: string) else {
+            print("변환된 URL이 존재하지 않습니다.")
+            return
+        }
         let request = URLRequest(url: requestedURL)
         webView.load(request)
     }
     
     @IBAction func goToEnteredURL(_ sender: UIButton) {
-        guard let enteredURL = urlEnteredTextField?.text else { print("주소창에 입력된 주소가 없습니다."); return }
+        guard let enteredURL = urlEnteredTextField?.text else {
+            print("주소창에 입력된 주소가 없습니다.")
+            return
+        }
         loadWebPageToWebView(to: enteredURL)
     }
     
