@@ -60,6 +60,12 @@ class ViewController: UIViewController {
     @IBAction func reload(_ sender: UIBarButtonItem) {
         webView.reload()
     }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "입력 주소 오류", message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil ))
+        self.present(alert, animated: true, completion: nil)
+    }
 
 }
 
