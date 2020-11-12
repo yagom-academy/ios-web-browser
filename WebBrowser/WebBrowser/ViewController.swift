@@ -7,34 +7,70 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var webViewMain: WKWebView!
+class ViewController: UIViewController, WKNavigationDelegate {
+    
+    @IBOutlet weak var mainWebView: WKWebView!
+    @IBOutlet weak var webPageAddressTextField: UITextField!
+    @IBOutlet weak var backBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var forwardBarButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // 1. url string을 찾는다
-        // 2. Request로 바꾼다
-        // 3. load
         
-        let urlString = "https://www.google.com"
-        if let url = URL(string: urlString) { //unwrapping
-            let urlReq = URLRequest(url: url)
-            webViewMain.load(urlReq)
+        self.mainWebView.navigationDelegate = self
+        
+        self.webPageAddressTextField.text = "https://www.google.com"
+        self.loadWebPage(of: "https://www.google.com")
+    }
+    
+    /// 웹뷰에 입력한 주소페이지를 로드하는 함수.
+    ///
+    /// - Parameter of: 이동할 웹페이지의 주소 문자열.
+    func loadWebPage(of address: String) {
+        if let url = URL(string: address) {
+            let urlRequest = URLRequest(url: url)
+            self.mainWebView.load(urlRequest)
         }
-       
     }
 
-    @IBAction func btnBack(_ sender: Any) {
-        webViewMain.goBack()
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.backBarButtonItem.isEnabled = self.mainWebView.canGoBack
+        self.forwardBarButtonItem.isEnabled = self.mainWebView.canGoForward
+        
+        self.webPageAddressTextField.text = self.mainWebView.url?.absoluteString
     }
     
-    @IBAction func btnForward(_ sender: Any) {
-        webViewMain.goForward()
+    func showAlert() {
+        let alert = UIAlertController(title: "", message: "입력한 주소가 올바른 형태가 아닙니다", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default){(action) in}
+        alert.addAction(okAction)
+        present(alert, animated: false, completion: nil)
     }
     
-    @IBAction func btnReload(_ sender: Any) {
-        webViewMain.reload()
+    @IBAction func touchUpGoBarButtonItem(_ sender: UIBarButtonItem) {
+         if let address = webPageAddressTextField.text {
+            var hasPrefix: Bool = false
+            hasPrefix = address.hasPrefix("http")
+            if hasPrefix == true {
+                loadWebPage(of: address)
+                self.webPageAddressTextField.endEditing(true)
+            } else {
+                showAlert()
+            }
+         }
     }
+    
+    @IBAction func touchUpBackBarButtonItem(_ sender: UIBarButtonItem) {
+        self.mainWebView.goBack()
+    }
+    
+    @IBAction func touchUpForwardBarButtonItem(_ sender: UIBarButtonItem) {
+        self.mainWebView.goForward()
+    }
+    
+    @IBAction func touchUpRefreshBarButtonItem(_ sender: UIBarButtonItem) {
+        self.mainWebView.reload()
+    }
+
 }
 
