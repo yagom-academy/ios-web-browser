@@ -80,7 +80,7 @@ class ViewController: UIViewController {
     @IBAction func movePage() {
         self.searchBar.endEditing(true)
         guard let urlString = searchBar.text,
-              !urlString.isEmpty else {
+              urlString.isNotEmpty else {
             return self.showErrorAlert(error: .emptyAddress)
         }
         self.requestURL(urlString: urlString)
