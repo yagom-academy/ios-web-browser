@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             print("입력 URL이 없어서 종료됩니다.")
             return nil
         }
-        let convertedURL: URL? = URL(string: urlString)
+        let convertedURL: URL? = URL(string: verifyURL(urlString: urlString))
         return convertedURL
     }
     
@@ -59,6 +59,14 @@ class ViewController: UIViewController {
     
     @IBAction func reload(_ sender: UIBarButtonItem) {
         webView.reload()
+    }
+    
+    func verifyURL(urlString: String) -> String {
+        let convertedString = urlString
+        if !(convertedString.hasPrefix("https://")) && !(convertedString.hasPrefix("http://")) {
+            showAlert()
+        }
+        return convertedString
     }
     
     func showAlert() {
