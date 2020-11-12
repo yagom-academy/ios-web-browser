@@ -19,27 +19,50 @@ class ViewController: UIViewController {
         loadWebPageToWebView(to: favoriteURL)
     }
     
-    func convertStringToURL(input string: String?) -> URL? {
+    func convertStringToUrl(input string: String?) -> URL? {
         guard let urlString = string else {
-            print("입력 URL이 없어서 종료됩니다.")
+            showAlert(message: "입력 URL이 없어서 종료됩니다.")
             return nil
         }
-        let convertedURL: URL? = URL(string: verifyURL(urlString: urlString))
-        return convertedURL
+        if isUrlStringValid(needCheck: urlString) {
+            let convertedUrl: URL? = URL(string: urlString)
+            return convertedUrl
+        }
+        else {
+            showAlert(message: "입력하신 URL이 유효하지 않습니다.")
+            return nil
+        }
     }
     
     private func loadWebPageToWebView(to string: String?) {
-        guard let requestedURL = convertStringToURL(input: string) else {
-            print("변환된 URL이 존재하지 않습니다.")
+        guard let requestedURL = convertStringToUrl(input: string) else {
+            showAlert(message: "변환할 URL이 존재하지 않습니다.")
             return
         }
         let request = URLRequest(url: requestedURL)
         webView.load(request)
     }
+
+    func isUrlStringValid(needCheck notCheckedUrl: String) -> Bool {
+        let checkedUrl = notCheckedUrl.lowercased()
+        if checkedUrl.hasPrefix("http://") || checkedUrl.hasPrefix("https://") {
+            return true
+        }
+        return false
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     
     @IBAction func goToEnteredURL(_ sender: UIButton) {
         guard let enteredURL = urlEnteredTextField?.text else {
-            print("주소창에 입력된 주소가 없습니다.")
+            showAlert(message: "주소창에 입력된 주소가 없습니다.")
             return
         }
         loadWebPageToWebView(to: enteredURL)
@@ -60,20 +83,4 @@ class ViewController: UIViewController {
     @IBAction func reload(_ sender: UIBarButtonItem) {
         webView.reload()
     }
-    
-    func verifyURL(urlString: String) -> String {
-        let convertedString = urlString
-        if !(convertedString.hasPrefix("https://")) && !(convertedString.hasPrefix("http://")) {
-            showAlert()
-        }
-        return convertedString
-    }
-    
-    func showAlert() {
-        let alert = UIAlertController(title: "입력 주소 오류", message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil ))
-        self.present(alert, animated: true, completion: nil)
-    }
-
 }
-
