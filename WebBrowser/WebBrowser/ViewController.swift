@@ -5,11 +5,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var urlTextField: UITextField!
     
-    var urlAddress: String = "https://www.rapid7.com"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let urlAddress: String = "https://www.rapid7.com"
         loadWebPage(url: urlAddress)
         urlTextField.text = urlAddress
     }
