@@ -97,11 +97,12 @@ extension ViewController : WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         
-        print("redirect")
         guard let urlString = webView.url?.absoluteString else {
             return showErrorAlert(error: .loadPage)
         }
-        print("redirect url: \(urlString)")
+        
+        debugPrint("redirect url: \(urlString)")
+        
         self.requestURL(urlString: urlString)
     }
 }
