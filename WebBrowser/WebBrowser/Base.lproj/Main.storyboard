@@ -58,7 +58,7 @@
                                     <constraint firstAttribute="width" constant="338" id="SK1-un-z17"/>
                                     <constraint firstAttribute="height" constant="40" id="urd-3e-YpN"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go" textContentType="url"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlc-jL-SZ0">
                                 <rect key="frame" x="348" y="36.5" width="56" height="35"/>
