@@ -105,4 +105,10 @@ extension ViewController : WKNavigationDelegate {
         
         self.requestURL(urlString: urlString)
     }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if let urlString = webView.url?.absoluteString {
+            self.searchBar.text = urlString
+        }
+    }
 }
