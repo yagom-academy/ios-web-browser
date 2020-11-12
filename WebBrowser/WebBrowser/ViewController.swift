@@ -83,6 +83,11 @@ class ViewController: UIViewController {
               urlString.isNotEmpty else {
             return showErrorAlert(error: .emptyAddress)
         }
+        
+        if urlString.isNotValidate {
+            return showErrorAlert(error: .validateAddress)
+        }
+        
         requestURL(urlString: urlString)
     }
 }
