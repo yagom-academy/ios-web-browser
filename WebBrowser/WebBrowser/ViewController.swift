@@ -7,7 +7,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var inputField: UITextField!
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +30,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         webView.load(request)
     }
-    
+  
     @IBAction func touchUpChangeButton(_ sender: UIButton) {
         let inputTextUrl: String? = inputField.text
         guard let inputUrl: String = inputTextUrl else { return }
@@ -46,7 +46,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         webView.load(changeRequest)
     }
-    
+  
     @IBAction func touchUpBackButton(_ sender: UIBarButtonItem) {
         if webView.canGoBack {
             webView.goBack()
@@ -62,7 +62,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
             webView.goForward()
         }
     }
-    
+  
     func verifyUrl(_ unidentifiedUrl: String) -> String {
         let identifyUrl = unidentifiedUrl.lowercased()
         if !(identifyUrl.hasPrefix("http://") || identifyUrl.hasPrefix("https://")) {
