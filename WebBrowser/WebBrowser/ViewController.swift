@@ -83,7 +83,4 @@ class ViewController: UIViewController {
     @IBAction func reload(_ sender: UIBarButtonItem) {
         webView.reload()
     }
-
 }
-
-
