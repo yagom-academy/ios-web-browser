@@ -38,17 +38,23 @@ class ViewController: UIViewController {
         return true
     }
     
+    func addHttpsProtocolName(url: String) -> String {
+        if isValidUrl(url: url) {
+            return url
+        } else {
+            return "https://" + url
+        }
+    }
+    
     @IBAction func goPressed(_ sender: UIButton) {
-        guard let requestUrl = urlTextField.text else {
+        guard var requestUrl = urlTextField.text else {
             showInvaildUrlAlert()
             return
         }
         
-        if isValidUrl(url: requestUrl) {
-            loadWebPage(url: requestUrl)
-        } else {
-            showInvaildUrlAlert()
-        }
+        requestUrl = addHttpsProtocolName(url: requestUrl)
+        urlTextField.text = requestUrl
+        loadWebPage(url: requestUrl)
     }
     
     @IBAction func stopPressed(_ sender: UIBarButtonItem) {
