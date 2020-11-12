@@ -7,17 +7,19 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var mainWebView: WKWebView!
-    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var webPageAddressTextField: UITextField!
     @IBOutlet weak var backBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var forwardBarButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addressTextField.text = "https://www.google.com"
+        self.mainWebView.navigationDelegate = self
+        
+        self.webPageAddressTextField.text = "https://www.google.com"
         self.loadWebPage(of: "https://www.google.com")
     }
     
@@ -31,24 +33,31 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func touchUpGoBarButtonItme(_ sender: UIBarButtonItem) {
-        if let address = addressTextField.text {
-            loadWebPage(of: address)
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.backBarButtonItem.isEnabled = self.mainWebView.canGoBack
+        self.forwardBarButtonItem.isEnabled = self.mainWebView.canGoForward
+        
+        self.webPageAddressTextField.text = self.mainWebView.url?.absoluteString
+    }
+    
+    @IBAction func touchUpGoBarButtonItem(_ sender: UIBarButtonItem) {
+        if let address = self.webPageAddressTextField.text {
+            self.loadWebPage(of: address)
             
-            self.addressTextField.endEditing(true)
+            self.webPageAddressTextField.endEditing(true)
         }
     }
     
-    @IBAction func touchUpBackBarButtonItme(_ sender: UIBarButtonItem) {
-        mainWebView.goBack()
+    @IBAction func touchUpBackBarButtonItem(_ sender: UIBarButtonItem) {
+        self.mainWebView.goBack()
     }
     
-    @IBAction func touchUpForwardBarButtonItme(_ sender: UIBarButtonItem) {
-        mainWebView.goForward()
+    @IBAction func touchUpForwardBarButtonItem(_ sender: UIBarButtonItem) {
+        self.mainWebView.goForward()
     }
     
     @IBAction func touchUpRefreshBarButtonItem(_ sender: UIBarButtonItem) {
-        mainWebView.reload()
+        self.mainWebView.reload()
     }
 
 }
