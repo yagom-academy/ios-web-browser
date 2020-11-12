@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     func showInvaildUrlAlert() {
-        let alert = UIAlertController(title: "접근할 수 없습니다.", message: "유효하지 않은 URL입니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "접근할 수 없습니다.", message: "URL 형식이 아니거나 유효하지 않은 URL입니다. 올바른 URL을 입력해주세요.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .cancel))
         self.present(alert, animated: true)
     }
