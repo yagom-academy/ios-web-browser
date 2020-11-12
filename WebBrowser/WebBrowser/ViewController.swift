@@ -13,7 +13,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    private let myAddress = "https://www.indiepost.co.kr"
+    let myAddress = "https://www.indiepost.co.kr"
 
     override func viewDidLoad() {
         super.viewDidLoad()
