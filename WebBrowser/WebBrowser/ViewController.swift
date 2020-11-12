@@ -94,17 +94,6 @@ extension ViewController : UISearchBarDelegate {
 }
 
 extension ViewController : WKNavigationDelegate {
-//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-//
-//        if navigationAction.navigationType == .linkActivated {
-//            guard let url = navigationAction.request.url else {
-//                return
-//            }
-//            let redirectUrlString = url.absoluteString
-//            self.requestURL(urlString: redirectUrlString)
-//        }
-//        decisionHandler(.allow)
-//    }
     
     func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         
