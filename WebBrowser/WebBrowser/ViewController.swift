@@ -19,22 +19,36 @@ class ViewController: UIViewController {
         loadWebPageToWebView(to: favoriteURL)
     }
     
-    func convertStringToURL(input string: String?) -> URL? {
+    func convertStringToUrl(input string: String?) -> URL? {
         guard let urlString = string else {
             showAlert(message: "입력 URL이 없어서 종료됩니다.")
             return nil
         }
-        let convertedURL: URL? = URL(string: urlString)
-        return convertedURL
+        if isUrlStringValid(needCheck: urlString) {
+            let convertedUrl: URL? = URL(string: urlString)
+            return convertedUrl
+        }
+        else {
+            showAlert(message: "입력하신 URL이 유효하지 않습니다.")
+            return nil
+        }
     }
     
     private func loadWebPageToWebView(to string: String?) {
-        guard let requestedURL = convertStringToURL(input: string) else {
+        guard let requestedURL = convertStringToUrl(input: string) else {
             showAlert(message: "변환할 URL이 존재하지 않습니다.")
             return
         }
         let request = URLRequest(url: requestedURL)
         webView.load(request)
+    }
+
+    func isUrlStringValid(needCheck notCheckedUrl: String) -> Bool {
+        let checkedUrl = notCheckedUrl.lowercased()
+        if checkedUrl.hasPrefix("http://") || checkedUrl.hasPrefix("https://") {
+            return true
+        }
+        return false
     }
     
     func showAlert(message: String) {
@@ -71,4 +85,5 @@ class ViewController: UIViewController {
     }
 
 }
+
 
