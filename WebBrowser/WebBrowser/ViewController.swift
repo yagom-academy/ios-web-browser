@@ -11,6 +11,7 @@ class ViewController: UIViewController {
         let urlAddress: String = "https://www.rapid7.com"
         loadWebPage(url: urlAddress)
         urlTextField.text = urlAddress
+        webView.navigationDelegate = self
     }
     
     func loadWebPage(url: String) {
@@ -64,5 +65,11 @@ class ViewController: UIViewController {
     
     @IBAction func goForwardPressed(_ sender: UIBarButtonItem) {
         webView.goForward()
+    }
+}
+
+extension ViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        showInvaildUrlAlert()
     }
 }
