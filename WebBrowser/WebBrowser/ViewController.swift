@@ -32,7 +32,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
             self.mainWebView.load(urlRequest)
         }
     }
-    
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.backBarButtonItem.isEnabled = self.mainWebView.canGoBack
         self.forwardBarButtonItem.isEnabled = self.mainWebView.canGoForward
@@ -40,12 +40,40 @@ class ViewController: UIViewController, WKNavigationDelegate {
         self.webPageAddressTextField.text = self.mainWebView.url?.absoluteString
     }
     
-    @IBAction func touchUpGoBarButtonItem(_ sender: UIBarButtonItem) {
-        if let address = self.webPageAddressTextField.text {
-            self.loadWebPage(of: address)
-            
+    func showErrorMessage() {
+        let alert = UIAlertController(title: "", message: "입력한 주소가 올바른 형태가 아닙니다", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default){(action) in}
+        alert.addAction(okAction)
+        present(alert, animated: false, completion: nil)
+    }
+    
+    func checkValid(webPageAddress: String) -> Bool {
+        let regEx = "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", argumentArray: [regEx])
+        return predicate.evaluate(with: webPageAddress)
+    }
+    
+    func hasPrefix(webPageAddress: String) {
+        var hasPrefix: Bool = false
+        hasPrefix = webPageAddress.hasPrefix("http")
+        if hasPrefix {
+            loadWebPage(of: webPageAddress)
+            self.webPageAddressTextField.endEditing(true)
+        } else {
+            let webPageAddress = "https://" + webPageAddress
+            loadWebPage(of: webPageAddress)
             self.webPageAddressTextField.endEditing(true)
         }
+    }
+    
+    @IBAction func touchUpGoBarButtonItem(_ sender: UIBarButtonItem) {
+        if let webPageAddress = webPageAddressTextField.text {
+            if checkValid(webPageAddress: webPageAddress) {
+                hasPrefix(webPageAddress: webPageAddress)
+            } else {
+                showErrorMessage()
+            }
+         }
     }
     
     @IBAction func touchUpBackBarButtonItem(_ sender: UIBarButtonItem) {
