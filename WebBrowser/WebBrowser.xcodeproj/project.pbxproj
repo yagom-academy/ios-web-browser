@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B435EA6255C6F6C000CAF6F /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B435EA5255C6F6C000CAF6F /* NetworkExtension.framework */; };
 		C7ABA119254EB0CA00B2367D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA118254EB0CA00B2367D /* AppDelegate.swift */; };
 		C7ABA11B254EB0CA00B2367D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA11A254EB0CA00B2367D /* SceneDelegate.swift */; };
 		C7ABA11D254EB0CA00B2367D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA11C254EB0CA00B2367D /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B435EA3255C6F6C000CAF6F /* WebBrowser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebBrowser.entitlements; sourceTree = "<group>"; };
+		8B435EA5255C6F6C000CAF6F /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		C7ABA115254EB0CA00B2367D /* WebBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7ABA118254EB0CA00B2367D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7ABA11A254EB0CA00B2367D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +34,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B435EA6255C6F6C000CAF6F /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B435EA4255C6F6C000CAF6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B435EA5255C6F6C000CAF6F /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7ABA10C254EB0CA00B2367D = {
 			isa = PBXGroup;
 			children = (
 				C7ABA117254EB0CA00B2367D /* WebBrowser */,
 				C7ABA116254EB0CA00B2367D /* Products */,
+				8B435EA4255C6F6C000CAF6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +69,7 @@
 		C7ABA117254EB0CA00B2367D /* WebBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				8B435EA3255C6F6C000CAF6F /* WebBrowser.entitlements */,
 				C7ABA118254EB0CA00B2367D /* AppDelegate.swift */,
 				C7ABA11A254EB0CA00B2367D /* SceneDelegate.swift */,
 				C7ABA11C254EB0CA00B2367D /* ViewController.swift */,
@@ -286,7 +300,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WebBrowser/WebBrowser.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WebBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,7 +320,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WebBrowser/WebBrowser.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WebBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
