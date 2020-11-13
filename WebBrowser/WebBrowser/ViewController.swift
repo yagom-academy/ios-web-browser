@@ -74,3 +74,24 @@ extension ViewController {
         present(alert, animated: false, completion: nil)
     }
 }
+
+// url 유효성 검증
+extension ViewController {
+    func isValidURL() -> Bool {
+        if searchBar.text == "https://" + "\(String.self)" || searchBar.text == "http://" + "\(String.self)" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func validateURL() {
+        switch isValidURL() {
+        case true:
+            setWebView(url: searchBar.text ?? "")
+        case false:
+            showErrorAlert()
+        }
+    }
+    
+}
