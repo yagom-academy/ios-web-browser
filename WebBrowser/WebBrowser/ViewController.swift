@@ -11,6 +11,7 @@ class ViewController: UIViewController {
         let urlAddress: String = "https://www.rapid7.com"
         loadWebPage(url: urlAddress)
         urlTextField.text = urlAddress
+        webView.navigationDelegate = self
     }
     
     func loadWebPage(url: String) {
@@ -29,13 +30,25 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func isValidUrl(url: String) -> Bool {
+        guard let _ = url.range(of: #"^https?://"#, options: .regularExpression) else {
+            return false
+        }
+        
+        return true
+    }
+    
     @IBAction func goPressed(_ sender: UIButton) {
         guard let requestUrl = urlTextField.text else {
             showInvaildUrlAlert()
             return
         }
         
-        loadWebPage(url: requestUrl)
+        if isValidUrl(url: requestUrl) {
+            loadWebPage(url: requestUrl)
+        } else {
+            showInvaildUrlAlert()
+        }
     }
     
     @IBAction func stopPressed(_ sender: UIBarButtonItem) {
@@ -52,5 +65,11 @@ class ViewController: UIViewController {
     
     @IBAction func goForwardPressed(_ sender: UIBarButtonItem) {
         webView.goForward()
+    }
+}
+
+extension ViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        showInvaildUrlAlert()
     }
 }
