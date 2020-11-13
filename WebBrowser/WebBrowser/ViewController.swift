@@ -13,7 +13,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         loadIndicator.startAnimating()
     }
-    
+
     func loadUrl() {
         guard let url: URL = URL(string: "https://yagom.net") else { return }
         let request: URLRequest = URLRequest(url: url)
@@ -50,7 +50,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
             webView.goForward()
         }
     }
-    
+  
     @IBAction func touchUpChangeButton(_ sender: UIButton) {
         guard let inputUrl: String = inputField.text else { return }
 
@@ -59,13 +59,28 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func changeUrl(_ inputUrl: String) {
         let identifiedUrl: String = verifyUrl(inputUrl)
-        
         guard let urlToChange: URL = URL(string: identifiedUrl) else { return }
         let changeRequest: URLRequest = URLRequest(url: urlToChange)
         
         webView.load(changeRequest)
     }
+  
+    @IBAction func touchUpBackButton(_ sender: UIBarButtonItem) {
+        if webView.canGoBack {
+            webView.goBack()
+        }
+    }
+
+    @IBAction func touchUpReloadButton(_ sender: UIBarButtonItem) {
+        webView.reload()
+    }
     
+    @IBAction func touchUpForwardButton(_ sender: UIBarButtonItem) {
+        if webView.canGoForward {
+            webView.goForward()
+        }
+    }
+  
     func verifyUrl(_ unidentifiedUrl: String) -> String {
         var identifyUrl = unidentifiedUrl.lowercased()
         if !(identifyUrl.hasPrefix("http://") || identifyUrl.hasPrefix("https://")) {
