@@ -38,6 +38,17 @@ class ViewController: UIViewController {
         requestURL(urlString: startUrl)
     }
     
+    func isNotUrl(origin: String) -> Bool {
+        if origin.hasPrefix("https://") || origin.hasPrefix("http://") {
+            return false
+        }
+        return true
+    }
+    
+    func makeUrlString(originString: String) -> String {
+        return "https://" + originString
+    }
+    
     func checkUrlValidation(urlString: String) -> Bool {
         let urlRegex = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
         return NSPredicate(format: "SELF MATCHES %@", urlRegex).evaluate(with: urlString)
@@ -89,11 +100,19 @@ class ViewController: UIViewController {
             return showErrorAlert(error: .emptyAddress)
         }
         
-        guard checkUrlValidation(urlString: urlString) else {
+        let requestUrlString: String
+        if isNotUrl(origin: urlString) {
+            requestUrlString = makeUrlString(originString: urlString)
+        }
+        else {
+            requestUrlString = urlString
+        }
+        
+        guard checkUrlValidation(urlString: requestUrlString) else {
             return showErrorAlert(error: .validateAddress)
         }
         
-        requestURL(urlString: urlString)
+        requestURL(urlString: requestUrlString)
     }
 }
 
