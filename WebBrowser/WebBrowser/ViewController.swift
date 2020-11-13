@@ -80,7 +80,7 @@ extension ViewController: WKNavigationDelegate {
 }
 
 extension ViewController: UISearchBarDelegate {
-    private func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) -> Bool {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
     }
 
@@ -124,10 +124,10 @@ extension ViewController {
         searchBarURL.text = currentAddress?.absoluteString
     }
 
-    private func showUrlErrorAlert(){
+    private func showUrlErrorAlert() {
         let notFoundURLAlert = UIAlertController(title: "Not Found", message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: .alert)
         let exitAction = UIAlertAction(title: "닫기", style: .default, handler: nil)
         notFoundURLAlert.addAction(exitAction)
-        present(notFoundURLAlert,animated: false,completion: nil)
+        present(notFoundURLAlert, animated: false, completion: nil)
     }
 }
