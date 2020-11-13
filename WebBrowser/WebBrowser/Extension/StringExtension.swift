@@ -9,8 +9,8 @@ import Foundation
 
 extension String {
     var isNotEmpty: Bool {
-        get {
-            !self.isEmpty
-        }
+        !self.isEmpty
     }
 }
+
+
