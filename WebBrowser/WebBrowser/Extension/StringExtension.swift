@@ -14,8 +14,8 @@ extension String {
     
     var isNotValidation: Bool {
         let validateAddressPrefixes = ["https://", "http://"]
-        for validateAddress in validateAddressPrefixes {
-            if self.hasPrefix(validateAddress) { return true }
+        for validateAddress in validateAddressPrefixes where self.hasPrefix(validateAddress) {
+            return false
         }
         return true
     }
