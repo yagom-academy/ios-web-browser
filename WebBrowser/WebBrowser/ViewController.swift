@@ -38,6 +38,11 @@ class ViewController: UIViewController {
         requestURL(urlString: startUrl)
     }
     
+    func checkUrlValidation(urlString: String) -> Bool {
+        let urlRegex = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        return NSPredicate(format: "SELF MATCHES %@", urlRegex).evaluate(with: urlString)
+    }
+    
     func requestURL(urlString: String) {
         guard let url = URL(string: urlString) else {
             return showErrorAlert(error: .convertUrl)
@@ -83,6 +88,11 @@ class ViewController: UIViewController {
               urlString.isNotEmpty else {
             return showErrorAlert(error: .emptyAddress)
         }
+        
+        guard checkUrlValidation(urlString: urlString) else {
+            return showErrorAlert(error: .validateAddress)
+        }
+        
         requestURL(urlString: urlString)
     }
 }
@@ -104,5 +114,11 @@ extension ViewController : WKNavigationDelegate {
         debugPrint("redirect url: \(urlString)")
         
         self.requestURL(urlString: urlString)
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if let urlString = webView.url?.absoluteString {
+            self.searchBar.text = urlString
+        }
     }
 }
