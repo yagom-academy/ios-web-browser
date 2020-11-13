@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJX-eM-fcZ">
-                                <rect key="frame" x="0.0" y="94" width="414" height="724"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="506"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -25,30 +24,30 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0yF-GL-GVv">
-                                <rect key="frame" x="20" y="44" width="334" height="50"/>
+                                <rect key="frame" x="20" y="0.0" width="520" height="50"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boo-Ca-gvx">
-                                <rect key="frame" x="364" y="44" width="30" height="50"/>
+                                <rect key="frame" x="550" y="0.0" width="30" height="50"/>
                                 <state key="normal" title="이동"/>
                                 <connections>
                                     <action selector="tappedMoveToURLButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WwL-di-gdj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="infoLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpy-ro-dPv">
-                                <rect key="frame" x="0.0" y="437.5" width="414" height="21"/>
+                                <rect key="frame" x="0.0" y="289.5" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtC-MU-xBD">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="0gh-eB-YCD"/>
                                     <barButtonItem style="plain" id="KGF-c6-rzF">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vwG-ja-jsj">
-                                            <rect key="frame" x="92.5" y="11" width="13" height="22"/>
+                                            <rect key="frame" x="139" y="11" width="13" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="chevron.backward" catalog="system"/>
                                             <connections>
@@ -59,7 +58,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g1q-v4-P8o"/>
                                     <barButtonItem style="plain" id="l1S-E3-yOU">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rx8-bX-58j">
-                                            <rect key="frame" x="198" y="11" width="18" height="22"/>
+                                            <rect key="frame" x="291" y="11" width="18" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="arrow.clockwise" catalog="system"/>
                                             <connections>
@@ -70,7 +69,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Swx-WF-ft9"/>
                                     <barButtonItem style="plain" id="5Ll-kH-Zf3">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l2g-1E-r1i">
-                                            <rect key="frame" x="308.5" y="11" width="13" height="22"/>
+                                            <rect key="frame" x="448" y="11" width="13" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="chevron.forward" catalog="system"/>
                                             <connections>
@@ -107,9 +106,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="errorInfoLabel" destination="Tpy-ro-dPv" id="fHk-Ax-VvT"/>
                         <outlet property="goBackButton" destination="KGF-c6-rzF" id="Onz-rF-E45"/>
                         <outlet property="goForwardButton" destination="5Ll-kH-Zf3" id="Xm9-HP-CEL"/>
-                        <outlet property="initialScreenLabel" destination="Tpy-ro-dPv" id="fHk-Ax-VvT"/>
                         <outlet property="moveToURLButton" destination="boo-Ca-gvx" id="DCu-Ig-GRt"/>
                         <outlet property="reloadPageButton" destination="l1S-E3-yOU" id="ip0-r1-FAP"/>
                         <outlet property="searchBarURL" destination="0yF-GL-GVv" id="J1P-Ci-OOF"/>
