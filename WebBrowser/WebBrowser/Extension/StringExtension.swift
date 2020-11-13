@@ -12,10 +12,10 @@ extension String {
         !self.isEmpty
     }
     
-    var isNotValidate: Bool {
-        let validateAddressPrefix = ["https://", "http://"]
-        for validate in validateAddressPrefix {
-            if self.hasPrefix(validate) { return true }
+    var isNotValidation: Bool {
+        let validateAddressPrefixes = ["https://", "http://"]
+        for validateAddress in validateAddressPrefixes {
+            if self.hasPrefix(validateAddress) { return true }
         }
         return true
     }

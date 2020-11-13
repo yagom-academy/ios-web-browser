@@ -84,7 +84,7 @@ class ViewController: UIViewController {
             return showErrorAlert(error: .emptyAddress)
         }
         
-        if urlString.isNotValidate {
+        if urlString.isNotValidation {
             return showErrorAlert(error: .validateAddress)
         }
         
