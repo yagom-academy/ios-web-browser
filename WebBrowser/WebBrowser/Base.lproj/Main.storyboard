@@ -1,24 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDm-tZ-FZg" customClass="ToolBar" customModule="WebBrowser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem image="chevron.left" catalog="system" id="dh5-pW-CA1">
+                                        <connections>
+                                            <action selector="didTapBackButton:" destination="mDm-tZ-FZg" id="heA-IT-ftq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="chevron.right" catalog="system" id="BWO-tH-tX2">
+                                        <connections>
+                                            <action selector="didTapForwardButton:" destination="mDm-tZ-FZg" id="3XK-Oo-Wsg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="arrow.counterclockwise" catalog="system" id="DXs-SV-jlU">
+                                        <connections>
+                                            <action selector="didTapReloadButton:" destination="mDm-tZ-FZg" id="gbz-MY-Tcd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIz-Nx-hTR" customClass="WebView" customModule="WebBrowser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-0O-KGh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Iow-2I-TO0" customClass="SearchBar" customModule="WebBrowser" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="379" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tii-Kq-f1u">
+                                        <rect key="frame" x="379" y="0.0" width="35" height="56"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="검색"/>
+                                        <connections>
+                                            <action selector="didTapSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dsb-Hf-ejS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aIz-Nx-hTR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2t5-lE-Kqc"/>
+                            <constraint firstItem="mDm-tZ-FZg" firstAttribute="top" secondItem="aIz-Nx-hTR" secondAttribute="bottom" id="CQN-q4-Fve"/>
+                            <constraint firstItem="mDm-tZ-FZg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GF4-tp-PnL"/>
+                            <constraint firstItem="uvb-0O-KGh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MqC-za-HD6"/>
+                            <constraint firstItem="aIz-Nx-hTR" firstAttribute="top" secondItem="uvb-0O-KGh" secondAttribute="bottom" id="Qeo-qd-Hjo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aIz-Nx-hTR" secondAttribute="trailing" id="W67-ns-JeF"/>
+                            <constraint firstItem="mDm-tZ-FZg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XHs-eC-sVe"/>
+                            <constraint firstItem="uvb-0O-KGh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xth-xy-T9z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uvb-0O-KGh" secondAttribute="trailing" id="ntR-2k-K6O"/>
+                            <constraint firstItem="mDm-tZ-FZg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pWN-oS-LF1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="Iow-2I-TO0" id="kcI-O6-ob2"/>
+                        <outlet property="toolBar" destination="mDm-tZ-FZg" id="RVH-d6-Xrg"/>
+                        <outlet property="webView" destination="aIz-Nx-hTR" id="Vdk-Ys-Cl9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="4" y="79"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
