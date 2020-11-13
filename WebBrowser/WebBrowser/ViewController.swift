@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBarURL.autocapitalizationType = .none
         searchBarURL.delegate = self
         webView.navigationDelegate = self
         initialScreenLabel.isHidden = true
