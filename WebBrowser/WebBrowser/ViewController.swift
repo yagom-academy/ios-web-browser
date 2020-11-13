@@ -15,29 +15,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var reloadPageButton: UIBarButtonItem!
     @IBOutlet weak var searchBarURL: UISearchBar!
     @IBOutlet weak var moveToURLButton: UIButton!
-    @IBOutlet weak var invalidURLLabel: UILabel!
+    @IBOutlet weak var initialScreenLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchBarURL.delegate = self
         webView.navigationDelegate = self
-        invalidURLLabel.isHidden = true
+        initialScreenLabel.isHidden = true
         goBackButton.isEnabled = webView.canGoBack
         goForwardButton.isEnabled = webView.canGoBack
         
-        let initialURLString = "https://m.naver.com"
+        let initialURLString = " "
         
-        guard let initialURL = convertToURL(of: initialURLString) else {
-            print("URL is nil : 잘못된 값이 입력되었습니다.")
-            let notFoundURLAlert = UIAlertController(title: "Not Found", message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: .alert)
-            let exitAction = UIAlertAction(title: "닫기", style: .default, handler: nil)
-            notFoundURLAlert.addAction(exitAction)
-            present(notFoundURLAlert,animated: false,completion: nil)
+        guard convertStringToURL(of: initialURLString) != nil else {
+            initialScreenLabel.isHidden = false
+            initialScreenLabel.text = "이동하고 싶은 URL 값을 입력해주세요."
             return
         }
-        //URL Request Check Function
-        loadWebView(of: initialURL)
     }
     
     @IBAction func goBack() {
@@ -57,16 +52,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedMoveToURLButton(_ sender: UIButton) {
-        guard let searchBarURLText = searchBarURL.text else {
-            return
-        }
+        initialScreenLabel.isHidden = true
         
-        guard let requestedURL = convertToURL(of: searchBarURLText) else {
-            print("URL is nil : 잘못된 값이 입력되었습니다.")
-            let notFoundURLAlert = UIAlertController(title: "Not Found", message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: .alert)
-            let exitAction = UIAlertAction(title: "닫기", style: .default, handler: nil)
-            notFoundURLAlert.addAction(exitAction)
-            present(notFoundURLAlert,animated: false,completion: nil)
+        guard let searchBarURLText = searchBarURL.text,
+              let requestedURL = convertStringToURL(of: searchBarURLText) else {
             return
         }
         
@@ -78,6 +67,12 @@ extension ViewController: WKNavigationDelegate {
         goBackButton.isEnabled = webView.canGoBack
         goForwardButton.isEnabled = webView.canGoForward
         showCurrentAddress()
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        showUrlErrorAlert()
+        showCurrentAddress()
+        return
     }
 }
 extension ViewController: UISearchBarDelegate {
@@ -95,22 +90,28 @@ extension ViewController {
     private func loadWebView(of requestedURL: URL) {
         let urlRequest = URLRequest(url: requestedURL)
         searchBarURL.text = requestedURL.absoluteString
-        print(urlRequest)
         webView.load(urlRequest)
     }
     
-    private func convertToURL(of searchBarText: String?) -> URL? {
-        guard let requestedURLText = searchBarText, let testUrl = URL(string: requestedURLText) else {
-            print("URL is nil : 잘못된 값이 입력되었습니다.")
-            invalidURLLabel.text = "잘못된 URL값 입니다."
-            invalidURLLabel.isHidden = false
+    private func convertStringToURL(of searchBarText: String?) -> URL? {
+        guard let requestedURLText = searchBarText, let validUrl = URL(string: requestedURLText) else {
+            showUrlErrorAlert()
+            showCurrentAddress()
             return nil
         }
-        return testUrl
+        
+        return validUrl
     }
-
+    
     private func showCurrentAddress() {
         let currentAddress = webView.url
         searchBarURL.text = currentAddress?.absoluteString
+    }
+    
+    private func showUrlErrorAlert(){
+        let notFoundURLAlert = UIAlertController(title: "Not Found", message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: .alert)
+        let exitAction = UIAlertAction(title: "닫기", style: .default, handler: nil)
+        notFoundURLAlert.addAction(exitAction)
+        present(notFoundURLAlert,animated: false,completion: nil)
     }
 }
