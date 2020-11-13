@@ -33,11 +33,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     func moveToURL() {
         searchBarSearchButtonClicked(searchBar)
-        setWebView(url: searchBar.text ?? "")
+        validateURL()
     }
     
     // 버튼
-    @IBAction func moveToURLButton() {
+    @IBAction func moveToURLButton(_ sender: UIButton) {
         moveToURL()
     }
     
@@ -78,7 +78,7 @@ extension ViewController {
 // url 유효성 검증
 extension ViewController {
     func isValidURL() -> Bool {
-        if searchBar.text == "https://" + "\(String.self)" || searchBar.text == "http://" + "\(String.self)" {
+        if searchBar.text?.hasPrefix("https://") ?? false || searchBar.text?.hasPrefix("http://") ?? false {
             return true
         } else {
             return false
@@ -93,5 +93,4 @@ extension ViewController {
             showErrorAlert()
         }
     }
-    
 }
