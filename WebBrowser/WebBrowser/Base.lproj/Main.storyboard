@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJB-cl-Jtc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="648"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -26,25 +26,25 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10J-sG-zVW" userLabel="ToolBar">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="761" width="390" height="49"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="agh-2f-QVf"/>
-                                    <barButtonItem title="btnGoBack" image="arrow.left" catalog="system" width="125" id="ZRM-Dr-Abq" userLabel="ButtonGoBack">
+                                    <barButtonItem title="btnGoBack" image="arrow.left" catalog="system" width="125" id="ZRM-Dr-Abq" userLabel="Back Button">
                                         <connections>
-                                            <action selector="buttonGoBack:" destination="BYZ-38-t0r" id="cs2-4j-byT"/>
+                                            <action selector="touchUpBackButton:" destination="BYZ-38-t0r" id="7dv-p3-irc"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ps2-in-AO7"/>
-                                    <barButtonItem title="btnReload" image="arrow.clockwise" catalog="system" width="125" id="ATP-vk-ZEC" userLabel="ButtonReload">
+                                    <barButtonItem title="btnReload" image="arrow.clockwise" catalog="system" width="125" id="ATP-vk-ZEC" userLabel="Reload Button">
                                         <connections>
-                                            <action selector="buttonReload:" destination="BYZ-38-t0r" id="mTW-jm-uhS"/>
+                                            <action selector="touchUpReloadButton:" destination="BYZ-38-t0r" id="AnU-sP-KhW"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SwR-Im-7N0"/>
-                                    <barButtonItem title="btnGoForward" image="arrow.right" catalog="system" width="125" id="XMd-lD-nUO" userLabel="ButtonGoForward">
+                                    <barButtonItem title="btnGoForward" image="arrow.right" catalog="system" width="125" id="XMd-lD-nUO" userLabel="Forward Button">
                                         <connections>
-                                            <action selector="buttonGoForward:" destination="BYZ-38-t0r" id="N1v-Ft-gWV"/>
+                                            <action selector="touchUpForwardButton:" destination="BYZ-38-t0r" id="Z4E-5a-fLN"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pnU-tZ-mlL"/>
@@ -52,7 +52,7 @@
                                 <color key="tintColor" name="AccentColor"/>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-oi-HMY">
-                                <rect key="frame" x="316" y="5" width="88" height="34"/>
+                                <rect key="frame" x="316" y="49" width="88" height="34"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="이동"/>
@@ -61,13 +61,16 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kiu-wh-l17">
-                                <rect key="frame" x="10" y="5" width="298" height="34"/>
+                                <rect key="frame" x="10" y="49" width="298" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="VKU-qY-PDM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="HRC-2m-vgY">
+                                <rect key="frame" x="185" y="412" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -83,16 +86,15 @@
                             <constraint firstItem="Kiu-wh-l17" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="iyr-w8-GAr"/>
                             <constraint firstItem="10J-sG-zVW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jJj-IS-8Ex"/>
                             <constraint firstItem="bJB-cl-Jtc" firstAttribute="top" secondItem="AkT-oi-HMY" secondAttribute="bottom" constant="5" id="jnK-Da-28W"/>
+                            <constraint firstItem="HRC-2m-vgY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="juJ-Or-tIC"/>
+                            <constraint firstItem="HRC-2m-vgY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nWG-LK-hOL"/>
                             <constraint firstItem="10J-sG-zVW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rkv-7Y-9M4"/>
                             <constraint firstItem="bJB-cl-Jtc" firstAttribute="top" secondItem="Kiu-wh-l17" secondAttribute="bottom" constant="5" id="uYa-qi-exG"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonGoBack" destination="ZRM-Dr-Abq" id="eqp-oD-bZu"/>
-                        <outlet property="buttonGoForward" destination="XMd-lD-nUO" id="T4S-0c-9J5"/>
-                        <outlet property="buttonReload" destination="ATP-vk-ZEC" id="BD2-mm-379"/>
-                        <outlet property="inputText" destination="Kiu-wh-l17" id="d8T-ua-IvA"/>
-                        <outlet property="toolBar" destination="10J-sG-zVW" id="Qb4-59-WGN"/>
+                        <outlet property="inputField" destination="Kiu-wh-l17" id="d8T-ua-IvA"/>
+                        <outlet property="loadIndicator" destination="HRC-2m-vgY" id="k2g-ao-vl8"/>
                         <outlet property="webView" destination="bJB-cl-Jtc" id="rJ4-k8-Pp0"/>
                     </connections>
                 </viewController>
