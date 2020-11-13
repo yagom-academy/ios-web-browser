@@ -38,6 +38,11 @@ class ViewController: UIViewController {
         requestURL(urlString: startUrl)
     }
     
+    func checkUrlValidation(urlString: String) -> Bool {
+        let urlRegex = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        return NSPredicate(format: "SELF MATCHES %@", urlRegex).evaluate(with: urlString)
+    }
+    
     func requestURL(urlString: String) {
         guard let url = URL(string: urlString) else {
             return showErrorAlert(error: .convertUrl)
@@ -84,7 +89,7 @@ class ViewController: UIViewController {
             return showErrorAlert(error: .emptyAddress)
         }
         
-        if urlString.isNotValidation {
+        guard checkUrlValidation(urlString: urlString) else {
             return showErrorAlert(error: .validateAddress)
         }
         
