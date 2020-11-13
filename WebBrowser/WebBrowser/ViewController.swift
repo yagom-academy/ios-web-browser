@@ -12,9 +12,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     let myAddress = "https://www.indiepost.co.kr"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +22,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         setWebView(url: myAddress)
     }
 
-    
     func setWebView(url: String) {
         guard let setUrl = URL(string: url) else {
             return showErrorAlert()
@@ -31,13 +29,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
         let request = URLRequest(url: setUrl)
         webView.load(request)
-    }
-    
-    func showErrorAlert() {
-        let alert = UIAlertController(title: "오류", message: "url을 불러오는데 오류가 있습니다.", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(confirmAction)
-        present(alert, animated: false, completion: nil)
     }
     
     func moveToURL() {
@@ -61,9 +52,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBAction func reloadButton(_ sender: UIBarButtonItem) {
         webView.reload()
     }
+}
     
-    
-    // 키보드 제어
+// 키보드 제어
+extension ViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -73,3 +65,12 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
 }
 
+// 에러 alert
+extension ViewController {
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "오류", message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(confirmAction)
+        present(alert, animated: false, completion: nil)
+    }
+}
