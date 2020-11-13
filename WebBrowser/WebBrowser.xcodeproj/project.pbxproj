@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A3A882B255A2942000C32D4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3A8829255A2942000C32D4 /* WebKit.framework */; };
-		9A3A882C255A2942000C32D4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3A882A255A2942000C32D4 /* WebKit.framework */; };
+		9A36AAA8255E829400477299 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3A882A255A2942000C32D4 /* WebKit.framework */; };
+		9A36AAAA255E829900477299 /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A36AAA9255E829800477299 /* libswiftWebKit.tbd */; };
 		C7ABA119254EB0CA00B2367D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA118254EB0CA00B2367D /* AppDelegate.swift */; };
 		C7ABA11B254EB0CA00B2367D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA11A254EB0CA00B2367D /* SceneDelegate.swift */; };
 		C7ABA11D254EB0CA00B2367D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABA11C254EB0CA00B2367D /* ViewController.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A3A8829255A2942000C32D4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/PrivateFrameworks/WebKit.framework; sourceTree = SDKROOT; };
+		9A36AAA9255E829800477299 /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		9A3A882A255A2942000C32D4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C7ABA115254EB0CA00B2367D /* WebBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7ABA118254EB0CA00B2367D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,8 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3A882B255A2942000C32D4 /* WebKit.framework in Frameworks */,
-				9A3A882C255A2942000C32D4 /* WebKit.framework in Frameworks */,
+				9A36AAAA255E829900477299 /* libswiftWebKit.tbd in Frameworks */,
+				9A36AAA8255E829400477299 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,8 +46,8 @@
 		9A3A8828255A2942000C32D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A36AAA9255E829800477299 /* libswiftWebKit.tbd */,
 				9A3A882A255A2942000C32D4 /* WebKit.framework */,
-				9A3A8829255A2942000C32D4 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -310,6 +310,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.WebBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -333,6 +337,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.WebBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
