@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var reloadPageButton: UIBarButtonItem!
     @IBOutlet weak var searchBarURL: UISearchBar!
     @IBOutlet weak var moveToURLButton: UIButton!
-    @IBOutlet weak var initialScreenLabel: UILabel!
+    @IBOutlet weak var errorInfoLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,15 @@ class ViewController: UIViewController {
         searchBarURL.autocapitalizationType = .none
         searchBarURL.delegate = self
         webView.navigationDelegate = self
-        initialScreenLabel.isHidden = true
+        errorInfoLabel.isHidden = true
         goBackButton.isEnabled = webView.canGoBack
         goForwardButton.isEnabled = webView.canGoBack
 
         let initialURLString = "http://m.naver.com"
 
         guard let initialURL = convertStringToURL(of: initialURLString) else {
-            initialScreenLabel.isHidden = false
-            initialScreenLabel.text = "잘못된 URL입니다. 주소값을 확인해주세요."
+            errorInfoLabel.isHidden = false
+            errorInfoLabel.text = "잘못된 URL입니다. 주소값을 확인해주세요."
             return
         }
         loadWebView(of: initialURL)
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedMoveToURLButton(_ sender: UIButton) {
-        initialScreenLabel.isHidden = true
+        errorInfoLabel.isHidden = true
 
         guard let searchBarURLText = searchBarURL.text,
               let requestedURL = convertStringToURL(of: searchBarURLText) else {
