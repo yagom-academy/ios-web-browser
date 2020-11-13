@@ -14,14 +14,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
         loadUrl()
     }
 
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        loadIndicator.startAnimating()
-    }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        loadIndicator.stopAnimating()
-    }
-
     func loadUrl() {
         guard let url: URL = URL(string: "https://yagom.net") else { return }
         let request: URLRequest = URLRequest(url: url)
@@ -30,10 +22,17 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         webView.load(request)
     }
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        loadIndicator.startAnimating()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        loadIndicator.stopAnimating()
+    }
   
     @IBAction func touchUpChangeButton(_ sender: UIButton) {
-        let inputTextUrl: String? = inputField.text
-        guard let inputUrl: String = inputTextUrl else { return }
+        guard let inputUrl: String = inputField.text else { return }
 
         changeUrl(inputUrl)
     }
@@ -67,6 +66,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         let identifyUrl = unidentifiedUrl.lowercased()
         if !(identifyUrl.hasPrefix("http://") || identifyUrl.hasPrefix("https://")) {
             showAlertMessage()
+            return "입력한 주소가 올바른 형태가 아닙니다."
         }
         return identifyUrl
     }
