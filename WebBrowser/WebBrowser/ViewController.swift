@@ -41,8 +41,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func changeUrl(_ inputUrl: String) {
         let identifiedUrl: String = verifyUrl(inputUrl)
         
-        print(identifiedUrl) //TEST 코드
-
         guard let urlToChange: URL = URL(string: identifiedUrl) else { return }
         let changeRequest: URLRequest = URLRequest(url: urlToChange)
         
@@ -68,28 +66,22 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func verifyUrl(_ unidentifiedUrl: String) -> String {
         var identifyUrl = unidentifiedUrl.lowercased()
         if !(identifyUrl.hasPrefix("http://") || identifyUrl.hasPrefix("https://")) {
-            showAlertMessage()
-        }
-        else if identifyUrl.hasPrefix("http://") {
             identifyUrl = autoChangeUrl(identifyUrl)
         }
         return identifyUrl
     }
     
+    /*
     func showAlertMessage() {
         let alert = UIAlertController(title: nil, message: "입력한 주소가 올바른 형태가 아닙니다.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "확인", style: .cancel, handler : nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-
+    */
+ 
     func autoChangeUrl(_ identifyUrl: String) -> String {
-        let autoChangedUrl = identifyUrl.replacingOccurrences(of: "http://", with: "https://")
-        if let autoUrl = URL(string: autoChangedUrl) {
-            if UIApplication.shared.canOpenURL(autoUrl) {
-                print("Complete Changed")
-            }
-        }
+        let autoChangedUrl = "https://" + identifyUrl
         return autoChangedUrl
     }
 }
