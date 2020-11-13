@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -93,6 +93,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="ZRM-Dr-Abq" id="uab-Nv-EiD"/>
+                        <outlet property="forwardButton" destination="XMd-lD-nUO" id="ghb-I2-kiU"/>
                         <outlet property="inputField" destination="Kiu-wh-l17" id="d8T-ua-IvA"/>
                         <outlet property="loadIndicator" destination="HRC-2m-vgY" id="k2g-ao-vl8"/>
                         <outlet property="webView" destination="bJB-cl-Jtc" id="rJ4-k8-Pp0"/>
