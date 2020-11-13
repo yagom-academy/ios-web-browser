@@ -48,16 +48,28 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     func checkValid(address: String) -> Bool {
-        let regEx = "((?:http|https)://)(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
+        let regEx = "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
         let predicate = NSPredicate(format: "SELF MATCHES %@", argumentArray: [regEx])
         return predicate.evaluate(with: address)
     }
     
+    func hasPrefix(address: String) {
+        var hasPrefix: Bool = false
+        hasPrefix = address.hasPrefix("http")
+        if hasPrefix {
+            loadWebPage(of: address)
+            self.webPageAddressTextField.endEditing(true)
+        } else {
+            let address = "https://" + address
+            loadWebPage(of: address)
+            self.webPageAddressTextField.endEditing(true)
+        }
+    }
+    
     @IBAction func touchUpGoBarButtonItem(_ sender: UIBarButtonItem) {
-         if let address = webPageAddressTextField.text {
+        if let address = webPageAddressTextField.text {
             if checkValid(address: address) {
-                    loadWebPage(of: address)
-                    self.webPageAddressTextField.endEditing(true)
+                hasPrefix(address: address)
             } else {
                 showAlert()
             }
