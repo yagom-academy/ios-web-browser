@@ -40,38 +40,38 @@ class ViewController: UIViewController, WKNavigationDelegate {
         self.webPageAddressTextField.text = self.mainWebView.url?.absoluteString
     }
     
-    func showAlert() {
+    func showErrorMessage() {
         let alert = UIAlertController(title: "", message: "입력한 주소가 올바른 형태가 아닙니다", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "확인", style: .default){(action) in}
         alert.addAction(okAction)
         present(alert, animated: false, completion: nil)
     }
     
-    func checkValid(address: String) -> Bool {
+    func checkValid(webPageAddress: String) -> Bool {
         let regEx = "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
         let predicate = NSPredicate(format: "SELF MATCHES %@", argumentArray: [regEx])
-        return predicate.evaluate(with: address)
+        return predicate.evaluate(with: webPageAddress)
     }
     
-    func hasPrefix(address: String) {
+    func hasPrefix(webPageAddress: String) {
         var hasPrefix: Bool = false
-        hasPrefix = address.hasPrefix("http")
+        hasPrefix = webPageAddress.hasPrefix("http")
         if hasPrefix {
-            loadWebPage(of: address)
+            loadWebPage(of: webPageAddress)
             self.webPageAddressTextField.endEditing(true)
         } else {
-            let address = "https://" + address
-            loadWebPage(of: address)
+            let webPageAddress = "https://" + webPageAddress
+            loadWebPage(of: webPageAddress)
             self.webPageAddressTextField.endEditing(true)
         }
     }
     
     @IBAction func touchUpGoBarButtonItem(_ sender: UIBarButtonItem) {
-        if let address = webPageAddressTextField.text {
-            if checkValid(address: address) {
-                hasPrefix(address: address)
+        if let webPageAddress = webPageAddressTextField.text {
+            if checkValid(webPageAddress: webPageAddress) {
+                hasPrefix(webPageAddress: webPageAddress)
             } else {
-                showAlert()
+                showErrorMessage()
             }
          }
     }
