@@ -17,11 +17,20 @@ class ViewController: UIViewController {
     //MARK:- IBActions
     @IBAction func moveToURL(_ sender: UIButton) {
         guard let inputURLString = textFieldForURL.text, let url = URL(string: inputURLString) else { return }
-        let request = URLRequest(url: url)
-        textFieldForURL.text?.removeAll()
-        textFieldForURL.endEditing(true)
-        webView.load(request)
+        if let validURL = textFieldForURL.text, validURL.hasPrefix("http://") || validURL.hasPrefix("https://") {
+            let request = URLRequest(url: url)
+            textFieldForURL.text?.removeAll()
+            textFieldForURL.endEditing(true)
+            webView.load(request)
+        } else {
+            let alertIndicatingInvalidURL = UIAlertController(title: "경고", message: "입력한 주소가 올바른 형태가 아닙니다. http:// 또는 https:// 를 넣은 URL로 입력해주세요.", preferredStyle: .alert)
+            alertIndicatingInvalidURL.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+                self.textFieldForURL.becomeFirstResponder()
+            }))
+            self.present(alertIndicatingInvalidURL, animated: true, completion: nil)
+        }
     }
+    
     @IBAction func moveBackwards(_ sender: Any) {
         webView.goBack()
     }
@@ -39,6 +48,7 @@ class ViewController: UIViewController {
         textFieldForURL.keyboardType = UIKeyboardType.URL
         textFieldForURL.autocorrectionType = UITextAutocorrectionType.no
         textFieldForURL.returnKeyType = UIReturnKeyType.go
+        textFieldForURL.clearButtonMode = UITextField.ViewMode.whileEditing
         
         guard let url = URL(string: "https://yagom.net") else { return }
         let request = URLRequest(url: url)
@@ -46,6 +56,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK:- Extensions
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.moveToURL(moveToURLButton)
