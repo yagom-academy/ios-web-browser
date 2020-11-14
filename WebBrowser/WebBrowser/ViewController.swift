@@ -30,6 +30,12 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func updateUrlField() {
+        if let currentUrl = webView.url {
+            urlTextField.text = currentUrl.absoluteString
+        }
+    }
+    
     func isValidUrl(url: String) -> Bool {
         guard let _ = url.range(of: #"^https?://"#, options: .regularExpression) else {
             return false
@@ -38,17 +44,22 @@ class ViewController: UIViewController {
         return true
     }
     
+    func addHttpsProtocolName(url: String) -> String {
+        if isValidUrl(url: url) {
+            return url
+        } else {
+            return "https://" + url
+        }
+    }
+    
     @IBAction func goPressed(_ sender: UIButton) {
-        guard let requestUrl = urlTextField.text else {
+        guard var requestUrl = urlTextField.text else {
             showInvaildUrlAlert()
             return
         }
         
-        if isValidUrl(url: requestUrl) {
-            loadWebPage(url: requestUrl)
-        } else {
-            showInvaildUrlAlert()
-        }
+        requestUrl = addHttpsProtocolName(url: requestUrl)
+        loadWebPage(url: requestUrl)
     }
     
     @IBAction func stopPressed(_ sender: UIBarButtonItem) {
@@ -71,5 +82,10 @@ class ViewController: UIViewController {
 extension ViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         showInvaildUrlAlert()
+        updateUrlField()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        updateUrlField()
     }
 }
