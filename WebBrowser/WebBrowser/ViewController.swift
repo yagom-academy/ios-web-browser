@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let _ = webView.urlRequest(to: "https://daum.net")
+        webView.urlRequest(to: "https://daum.net")
         
         //Configuration views
         searchBar.searchBarConfig()
