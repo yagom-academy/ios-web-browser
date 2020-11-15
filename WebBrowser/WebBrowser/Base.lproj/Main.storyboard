@@ -36,7 +36,7 @@
                                 </constraints>
                                 <state key="normal" title="이동"/>
                                 <connections>
-                                    <action selector="moveButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bdV-Oa-Qm8"/>
+                                    <action selector="move:" destination="BYZ-38-t0r" eventType="touchUpInside" id="byU-Mz-Ebw"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-pU-uk1">
@@ -45,19 +45,19 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="dC1-21-rwj"/>
                                     <barButtonItem title="Item" image="chevron.backward" catalog="system" id="64A-t1-7sg">
                                         <connections>
-                                            <action selector="backwardClicked:" destination="BYZ-38-t0r" id="O1J-1h-uw6"/>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="qJm-hS-FdZ"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rXc-cM-T3a"/>
                                     <barButtonItem title="Item" image="chevron.forward" catalog="system" id="UOD-vZ-Kuu">
                                         <connections>
-                                            <action selector="forwardClicked:" destination="BYZ-38-t0r" id="C1s-sI-eOC"/>
+                                            <action selector="goForward:" destination="BYZ-38-t0r" id="X0r-T4-3Ks"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1yH-qg-J5d"/>
                                     <barButtonItem title="Item" image="goforward" catalog="system" id="6rx-LI-QQB">
                                         <connections>
-                                            <action selector="reloadClicked:" destination="BYZ-38-t0r" id="qvM-QY-zCc"/>
+                                            <action selector="reload:" destination="BYZ-38-t0r" id="qan-j7-25w"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Vm9-qU-yLS"/>
@@ -83,7 +83,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="URLInputField" destination="zih-4a-uLQ" id="21E-qc-LSf"/>
+                        <outlet property="backButton" destination="64A-t1-7sg" id="joZ-2s-Phj"/>
+                        <outlet property="forwardButton" destination="UOD-vZ-Kuu" id="htf-Ar-sSY"/>
+                        <outlet property="urlInputField" destination="zih-4a-uLQ" id="68C-P1-7yE"/>
                         <outlet property="webView" destination="td5-nj-Uqh" id="Kb2-Wa-kst"/>
                     </connections>
                 </viewController>

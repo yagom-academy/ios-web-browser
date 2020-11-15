@@ -7,42 +7,66 @@
 import UIKit
 import WebKit
 
+enum URLError: Error {
+    case emptyString
+    case illegalCharacters
+    
+    func errorMessage() -> String {
+        var message: String
+        switch self {
+        case .emptyString:
+            message = "빈 문자열입니다"
+        case .illegalCharacters:
+            message = "잘못된 문자가 포함되어있습니다"
+        }
+        
+        return "[URL 생성 오류] \(message)"
+    }
+}
+
 final class ViewController: UIViewController {
     @IBOutlet private weak var webView: WKWebView!
-    @IBOutlet private weak var URLInputField: UITextField!
+    @IBOutlet private weak var urlInputField: UITextField!
+    @IBOutlet private weak var backButton: UIBarButtonItem!
+    @IBOutlet private weak var forwardButton: UIBarButtonItem!
     
-    @IBAction private func moveButtonClicked(_ sender: UIButton) {
-        guard let input = URLInputField.text else { return }
-        guard let inputURL = URL(string: input) else { return }
+    @IBAction private func move(_ sender: UIButton) {
+        guard let input = urlInputField.text else {
+            fatalError("유효하지 않은 입력입니다")
+        }
+        guard let inputURL = URL(string: input) else {
+            if input.isEmpty { fatalError(URLError.emptyString.errorMessage()) }
+            else { fatalError(URLError.illegalCharacters.errorMessage()) }
+        }
+        
         let request = URLRequest(url: inputURL)
         webView.load(request)
+        
+        backFowardSetting()
+    }
+    
+    @IBAction private func goBack(_ sender: UIBarButtonItem) {
+        webView.goBack()
+        backFowardSetting()
+    }
+    
+    @IBAction private func goForward(_ sender: UIBarButtonItem) {
+        webView.goForward()
+        backFowardSetting()
+    }
+    
+    @IBAction private func reload(_ sender: UIBarButtonItem) {
+        webView.reload()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @IBAction private func backwardClicked(_ sender: UIBarButtonItem) {
-        webView.goBack()
-        if webView.canGoBack {
-            sender.isEnabled = true
-        } else {
-            sender.isEnabled = false
-        }
         
+        backFowardSetting()
     }
     
-    @IBAction private func forwardClicked(_ sender: UIBarButtonItem) {
-        webView.goForward()
-        if webView.canGoForward {
-            sender.isEnabled = true
-        } else {
-            sender.isEnabled = false
-        }
+    private func backFowardSetting() {
+        backButton.isEnabled = !webView.backForwardList.backList.isEmpty
+        forwardButton.isEnabled = !webView.backForwardList.forwardList.isEmpty
     }
-    
-    @IBAction private func reloadClicked(_ sender: UIBarButtonItem) {
-        webView.reload()
-    }
-    
 }
