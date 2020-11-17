@@ -38,22 +38,6 @@ class ViewController: UIViewController {
         requestURL(urlString: startUrl)
     }
     
-    func isNotUrl(origin: String) -> Bool {
-        if origin.hasPrefix("https://") || origin.hasPrefix("http://") {
-            return false
-        }
-        return true
-    }
-    
-    func makeUrlString(originString: String) -> String {
-        return "https://" + originString
-    }
-    
-    func checkUrlValidation(urlString: String) -> Bool {
-        let urlRegex = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
-        return NSPredicate(format: "SELF MATCHES %@", urlRegex).evaluate(with: urlString)
-    }
-    
     func requestURL(urlString: String) {
         guard let url = URL(string: urlString) else {
             return showErrorAlert(error: .convertUrl)
@@ -139,5 +123,21 @@ extension ViewController : WKNavigationDelegate {
         if let urlString = webView.url?.absoluteString {
             self.searchBar.text = urlString
         }
+    }
+    
+    func isNotUrl(origin: String) -> Bool {
+        if origin.hasPrefix("https://") || origin.hasPrefix("http://") {
+            return false
+        }
+        return true
+    }
+    
+    func makeUrlString(originString: String) -> String {
+        return "https://" + originString
+    }
+    
+    func checkUrlValidation(urlString: String) -> Bool {
+        let urlRegex = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        return NSPredicate(format: "SELF MATCHES %@", urlRegex).evaluate(with: urlString)
     }
 }
